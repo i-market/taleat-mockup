@@ -1,0 +1,231 @@
+/*! formstone v1.1.0 [dropdown.css] 2016-05-01 | GPL-3.0 License | formstone.it */
+
+.fs-dropdown {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%
+}
+
+.fs-dropdown,
+.fs-dropdown *,
+.fs-dropdown :after,
+.fs-dropdown :before,
+.fs-dropdown:after,
+.fs-dropdown:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: none;
+  -o-transition: none;
+  -moz-transition: none;
+  transition: none;
+  -webkit-user-select: none!important;
+  -moz-user-select: none!important;
+  -ms-user-select: none!important;
+  user-select: none!important
+}
+
+.fs-dropdown-element {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent
+}
+
+.fs-dropdown-selected {
+  border: none;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  height: 48px;
+  padding: 0 16px;
+  padding-right: 55px;
+  font-size: 16px;
+  border: 1px solid #bea597;
+  color: #bea597;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.fs-dropdown-selected:before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  right: 15px;
+  background: url('../images/ico/arrow-select.svg')no-repeat 97% center;
+}
+
+.fs-dropdown-open .fs-dropdown-selected:before{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.fs-dropdown-options {
+  width: 100%;
+  max-height: 300px;
+  position: absolute;
+  top: 100%;
+  margin-top: -1px;
+  left: 0;
+  z-index: 5;
+  background: #fff;
+  border: 1px solid;
+  display: none;
+  overflow: auto;
+  overflow-x: hidden;
+  border: 1px solid #bea597;
+}
+
+.fs-dropdown-options.fs-scrollbar {
+  position: absolute
+}
+
+.fs-dropdown-group {
+  display: block;
+  font-size: 75%
+}
+
+.fs-dropdown-item {
+  border: none;
+  padding: 0;
+  width: 100%;
+  background: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  min-height: 48px;
+  line-height: 1.2;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 12px 16px;
+  color: #000;
+  border-bottom: 1px solid #bea597;
+}
+
+.fs-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.fs-dropdown-item_placeholder {
+  display: none
+}
+
+.fs-dropdown-item_selected {
+  background: #bea597;
+  color: #FFF;
+}
+
+.fs-dropdown-item_disabled {
+  cursor: default;
+  opacity: .5
+}
+
+.fs-dropdown-open {
+  z-index: 3
+}
+
+.fs-dropdown-open .fs-dropdown-options {
+  display: block
+}
+
+.fs-dropdown-open .fs-dropdown-selected {
+  z-index: 6
+}
+
+.fs-dropdown-cover.fs-dropdown-open .fs-dropdown-selected {
+  z-index: 4
+}
+
+.fs-dropdown-cover .fs-dropdown-options {
+  top: 0
+}
+
+.fs-dropdown-bottom .fs-dropdown-options {
+  top: auto;
+  bottom: 100%
+}
+
+.fs-dropdown-bottom.fs-dropdown-cover .fs-dropdown-options {
+  top: auto;
+  bottom: 0
+}
+
+.fs-dropdown-multiple .fs-dropdown-options {
+  width: 100%;
+  position: static;
+  display: block
+}
+
+.fs-dropdown-disabled {
+  opacity: .5
+}
+
+.fs-dropdown-disabled .fs-dropdown-selected {
+  cursor: default
+}
+
+.fs-dropdown-disabled .fs-dropdown-group,
+.fs-dropdown-disabled .fs-dropdown-item {
+  cursor: default
+}
+
+.fs-dropdown-options.fs-scrollbar {
+  overflow: hidden
+}
+
+.fs-dropdown-options.fs-scrollbar .fs-scrollbar-bar {
+  border: 1px solid;
+  border-width: 0 0 0 1px
+}
+
+.fs-dropdown-options.fs-scrollbar .fs-scrollbar-content {
+  max-height: 260px;
+  height: auto
+}
+
+.fs-dropdown-options.fs-scrollbar.fs-scrollbar-active .fs-scrollbar-content {
+  padding: 0
+}
+
+@media only screen and (max-width: 767px) {
+  .fs-dropdown-selected {
+    height: 40px;
+    line-height: 38px;
+    font-size: 14px;
+  }
+  .fs-dropdown-item {
+    font-size: 14px;
+    min-height: 40px;
+    line-height: 1.2;
+  }
+}

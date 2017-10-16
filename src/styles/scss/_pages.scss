@@ -187,6 +187,12 @@
 
 .wrap-labels-slider{
   margin-top: -1px;
+  .slide {
+    opacity: 0.15;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .wrap-labels-slider,

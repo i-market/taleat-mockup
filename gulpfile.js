@@ -14,6 +14,17 @@
   plumber = require('gulp-plumber'),
   tinypng = require('gulp-tinypng-compress');
 
+	let config = {
+		paths: {
+			sources: {
+				noCompile: [
+					'src/images/**/*.*',
+					'src/fonts/**/*.*'
+				]
+			}
+		}
+	};
+  
 /*browserSync*/
 gulp.task('browserSync', function () {
   browserSync({
@@ -33,15 +44,8 @@ gulp.task('clean', function () {
 
 /*no-compile(static)*/
 gulp.task('static', function () {
-  return gulp.src([
-		'src/**/**/*.*',
-		'!src/styles/**/*.*',
-		'!src/html/**/*.*',
-		'!src/js/**/*.*'])
-    .pipe(gulp.dest('build'))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+  return gulp.src(config.paths.sources.noCompile,  {base: './src/'}) 
+  .pipe(gulp.dest('./build'));
 });
 
 /*styles*/
@@ -121,8 +125,7 @@ gulp.task('watch', ['html', 'styles', 'js', 'static', 'browserSync'], function (
   gulp.watch('src/html/**/*.*', ['html']);
   gulp.watch('src/styles/**/*.*', ['styles']);
   gulp.watch('src/js/**/*.*', ['js']);
-  //gulp.watch('src/**/*.*', ['static']);
-  gulp.watch('!src/styles/**/*.*,!src/html/**/*.*,!src/js/**/., src/**/*.*', ['static']);
+  gulp.watch(config.paths.sources.noCompile, ['static']);
 });
 
 //img

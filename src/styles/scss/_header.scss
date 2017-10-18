@@ -182,7 +182,7 @@
 
 .header-middle-phones {
   text-align: right;
-  width: 290px;
+  width: 292px;
   font-size: 24px;
   @media only screen and (max-width: 1150px) {
     font-size: 20px;
@@ -265,6 +265,11 @@
   @media only screen and (max-width: 800px) {
     margin-left: 20px;
   }
+  .hidden{
+    @media only screen and (max-width:1023px) {
+      display: none;
+    }
+  }
 }
 
 .service-maintenance-link {
@@ -275,6 +280,11 @@
   margin-right: 85px;
   @media only screen and (max-width: 1150px) {
     margin-right: 20px;
+  }
+  .hidden{
+    @media only screen and (max-width:1023px) {
+      display: none;
+    }
   }
 }
 
@@ -294,6 +304,16 @@
   }
 }
 
+.goods-inside{
+  @media only screen and (max-width:767px) {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: calc(100% - 60px);
+    font-size: 16px;
+  }
+}
+
 .header-cart-ico {
   display: inline-block;
   vertical-align: top;
@@ -301,6 +321,9 @@
   height: 60px;
   background: #d9a903 url('../images/ico/cart.png')no-repeat center center;
   margin-right: 25px;
+  @media only screen and (max-width:767px) {
+    margin-right: 10px;
+  }
 }
 
 .menu-hidden {

@@ -2,10 +2,15 @@
   <div class="menu-hidden">
     <div class="menu-hidden-close"></div>
     <div class="menu-hidden-inner">
-      <div class="menu-hidden-sign-in">
+      <div class="menu-hidden-sign-in hidden">
         <a href="#">Вход</a>
         <span>/</span>
         <a href="#">Регистрация</a>
+      </div>
+      <div class="menu-hidden-registered">
+        <p class="name">Энергосбыт</p>
+        <p class="link"><a href="#">Личный кабинет</a></p>
+        <p class="link"><a href="#">Выход</a></p>
       </div>
       <ul>
         <li><a href="#" class="active"><span>Оплата и доставка</span></a></li>
@@ -42,10 +47,19 @@
             <li><a href="#">Видео</a></li>
           </ul>
         </nav>
-        <div class="sig-in">
+        <div class="sig-in" style="display: none">
           <a class="sig-in-link" href="#">Вход</a>
           <span class="separator">/</span>
           <a class="sig-in-link" href="#">Регистрация</a>
+        </div>
+        <div class="rigistered">
+          <span class="name">Энергосбыт</span>
+          <ul class="dd_rigistered">
+            <li><a href="#">Личный кабинет</a></li>
+            <li><a href="#">Написать сообщение</a></li>
+            <li><a href="#">Сменить пароль</a></li>
+            <li><a href="#">Выход</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -73,7 +87,10 @@
   <div class="header-bottom">
     <div class="wrap">
       <div class="header-bottom-left">
-        <span class="absurd"><span class="absurd-hidden"></span></span>
+        <span class="absurd">
+          <span class="absurd-desktop"></span>
+          <span class="absurd-hidden"></span>
+        </span>
         <a class="catalog-link" href="#">Каталог <span class="hidden">товаров</span></a>
       </div>
       <div class="header-bottom-right">

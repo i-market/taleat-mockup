@@ -6,7 +6,7 @@ $(document).ready(function () {
     $(".modal>.block, .modal").fadeOut(150);
     event.stopPropagation();
   });
-  $('.modal .close-modal').click(function () {
+  $('.modal .close').click(function () {
     $('.modal, .modal>.block').hide();
   });
   $('[data-modal]').on('click', function () {

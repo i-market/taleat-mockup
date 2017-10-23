@@ -1,3 +1,5 @@
+@import '_common.scss';
+
 .content-menu-block {
   position: relative;
   background: #f5f6fa;
@@ -215,6 +217,7 @@
 .wrap-labels-slider{
   .slide {
     opacity: 0.15;
+    transition: 0.3s;
     &:hover {
       opacity: 1;
     }
@@ -266,6 +269,11 @@
     @media only screen and (max-width: 767px) {
       height: 185px;
       overflow: hidden;
+    }
+    &.editable-area {
+      @include editable-children {
+        @include paragraph-like-font;
+      };
     }
   }
 }
@@ -372,6 +380,11 @@
   }
   .paragraph {
     margin-bottom: 0;
+    &.editable-area {
+      @include editable-children {
+        @include paragraph-like-font;
+      }
+    }
   }
 }
 
@@ -830,6 +843,9 @@
 .catalog-item-stock {
   color: $green;
   margin-bottom: 18px;
+  &.catalog-item-stock--out {
+    color: $red;
+  }
 }
 
 .wrap-catalog-hidden-block {
@@ -875,23 +891,32 @@
 
 .catalog-hidden-block {
   @media only screen and (max-width: 767px) {
+    display: none; // toggle
     padding: 0 15px;
   }
-  p {
+  .field {
     margin-bottom: 15px;
-    color: #999;
+    color: #666; // #999 is too hard to see
     font-size: 0;
-    span {
-      display: inline-block;
-      vertical-align: top;
+    @mixin font {
       font-size: 14px;
       line-height: 1.2;
-      &:nth-child(1) {
-        width: 100px;
-        color: #333;
-      }
-      &:nth-child(2) {
-        width: calc(100% - 100px);
+    }
+    .label, .value {
+      @include font;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .label {
+      width: 100px;
+      color: #333;
+    }
+    .value {
+      width: calc(100% - 100px);
+      &.editable-area {
+        @include editable-children {
+          @include font;
+        };
       }
     }
   }
@@ -1009,6 +1034,15 @@
       line-height: 24px;
       padding-left: 45px;
       background: url('../images/ico/cart-cataloge.png')no-repeat left center;
+    }
+  }
+  &.catalog-item-price--old-price {
+    .price-text {
+      color: $gray;
+      text-decoration: line-through;
+      span {
+        font-weight: normal;
+      }
     }
   }
 }

@@ -1,0 +1,44 @@
+// same as in _variables.scss
+$purple: #6688cc;
+
+@mixin paragraph-like-font {
+  // see `.paragraph`
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  @media only screen and (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+
+@mixin editable-children {
+  // shouldn't intersect with mockup styles
+  p {
+    @content;
+    margin-bottom: 24px;
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 15px;
+    }
+  }
+  a {
+    color: $purple;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.editable-area {
+  // used as a marker. only put styles in the modifiers below.
+
+  &.editable-area--full {
+    @include editable-children;
+    &, p {
+      @include paragraph-like-font;
+    }
+    img {
+      display: inline;
+    }
+  }
+}

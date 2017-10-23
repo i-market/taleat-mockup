@@ -1,3 +1,12 @@
+window.Mockup = {
+  openModal: function($modal) {
+    var duration = 150;
+    $modal.fadeIn(duration);
+    $($modal).find('.block').fadeIn(duration, function() {
+      $modal.trigger('openModal.app');
+    });
+  }
+};
 $(document).ready(function () {
   // модалка
   $('.modal').click(function (event) {
@@ -12,8 +21,7 @@ $(document).ready(function () {
   $('[data-modal]').on('click', function () {
     var dataModal = $(this).attr('data-modal'),
       dataId = $('#' + dataModal);
-    dataId.fadeIn(150);
-    $(dataId).find('.block').fadeIn(150);
+    Mockup.openModal(dataId);
   });
   // якоря
   $("[data-href]").on("click", function (t) {

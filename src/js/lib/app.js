@@ -32,7 +32,7 @@ $(document).ready(function () {
     t.preventDefault();
   });
   // аккордион
-  $(".accordeon .accordeon-inner").hide().prev().on('click', function () {
+  $(".accordeon .accordeon-inner").prev().on('click', function () {
     $('.accordeon-inner', '.accordeon').not(this).slideUp(150);
     $(this).next().not(':visible').slideDown(150);
     $('.accordeon-title', '.accordeon').not(this).removeClass('active');

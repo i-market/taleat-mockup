@@ -741,12 +741,12 @@ h4 {
 
 .banner {
   margin-top: 50px;
-  .first {
+  .desktop, .first {
     @media only screen and (max-width: 767px) {
       display: none;
     }
   }
-  .second {
+  .phone, .second {
     @media only screen and (min-width: 768px) {
       display: none;
     }

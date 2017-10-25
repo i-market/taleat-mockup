@@ -276,7 +276,7 @@ $(document).ready(function () {
   $('.labels-slider').slick({
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 5,
     prevArrow: $('.wrap-labels-slider .prev'),
     nextArrow: $('.wrap-labels-slider .next'),
     responsive: [
@@ -284,6 +284,7 @@ $(document).ready(function () {
         breakpoint: 767,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
           centerMode: true,
           centerPadding: '80px',
         }
@@ -294,7 +295,7 @@ $(document).ready(function () {
   $('.shops-slider').slick({
     infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     prevArrow: $('.wrap-shops-slider .prev'),
     nextArrow: $('.wrap-shops-slider .next'),
   });
@@ -305,7 +306,7 @@ $(document).ready(function () {
     $(this).slick({
       infinite: true,
       slidesToShow: 4,
-      slidesToScroll: 1,
+      slidesToScroll: 4,
       dots: true,
       appendDots: $(this).parents('.wrap-items-slider').find('.dots'),
       prevArrow: $(this).parents('.wrap-items-slider').find('.prev'),
@@ -314,19 +315,21 @@ $(document).ready(function () {
         {
           breakpoint: 1023,
           settings: {
-            slidesToShow: 3
+            slidesToShow: 3,
+            slidesToScroll: 3
           }
     },
         {
           breakpoint: 767,
           settings: {
-            slidesToShow: 1
+            slidesToShow: 1,
+            slidesToScroll: 1
           }
     }
   ]
     });
   });
-  // слайдер с сертификатами
+  // слайдер
   $('.useful-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -338,7 +341,7 @@ $(document).ready(function () {
   $('.sertificate-slider').slick({
     infinite: true,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 5,
     dots: true,
     appendDots: $('.wrap-sertificate-slider .dots'),
     prevArrow: $('.wrap-sertificate-slider .prev'),
@@ -347,13 +350,15 @@ $(document).ready(function () {
       {
         breakpoint: 1023,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 3,
+          slidesToScroll: 3
         }
     },
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 2,
+          slidesToScroll: 2
         }
     }
   ]
@@ -368,7 +373,7 @@ $(document).ready(function () {
   });
   $('.slider-item-thumbs').slick({
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     asNavFor: '.slider-item-main',
     arrows: false,
     focusOnSelect: true

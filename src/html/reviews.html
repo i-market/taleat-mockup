@@ -1,0 +1,105 @@
+//= template/head.html
+
+<body data-anchor="top">
+  //= template/header.html
+  <main class="content">
+    <span class="scroll-top" data-href="top"></span>
+    <!---->
+    //= template/content-menu-block.html
+    <section class="reviews">
+      <div class="section-title">
+        <div class="wrap">
+          <div class="section-title-block">
+            <h2>Отзывы</h2>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="grid">
+          <div class="col col-2">
+            <div class="wrap-reviews-item">
+              <div class="reviews-item">
+                <p class="top">
+                  <span class="date">12.07.2017</span>
+                  <span class="number">Заказ №1233-12</span>
+                </p>
+                <p class="name">Николай (Астрахань)</p>
+                <p class="paragraph">Стиральные машины, пылесосы, обогреватели, кондиционеры, холодильники – далеко не полный перечень устройств, без которых жизнь современного горожанина превратилась бы в настоящий ад. Стиральные машины, пылесосы, обогреватели, кондиционеры, холодильники – далеко не полный перечень устройств, без которых жизнь современного горожанина превратилась бы в настоящий ад. Стиральные машины, пылесосы, обогреватели, кондиционеры, холодильники – далеко не полный перечень устройств, без которых жизнь современного горожанина превратилась бы в настоящий ад.</p>
+                <p class="link">
+                  <span class="reviews-item-link">читать полностью</span>
+                </p>
+              </div>
+              <div class="reviews-item">
+                <p class="top">
+                  <span class="date">12.07.2017</span>
+                  <span class="number">Заказ №1233-12</span>
+                </p>
+                <p class="name">Николай (Астрахань)</p>
+                <p class="paragraph">Стиральные машины, пылесосы, обогреватели, кондиционеры, холодильники – далеко не полный перечень устройств, без которых жизнь современного горожанина превратилась бы в настоящий ад. Стиральные машины, пылесосы, обогреватели, кондиционеры, холодильники – далеко не полный перечень устройств, без которых жизнь современного горожанина превратилась бы в настоящий ад. Стиральные машины, пылесосы, обогреватели, кондиционеры, холодильники – далеко не полный перечень устройств, без которых жизнь современного горожанина превратилась бы в настоящий ад.</p>
+                <p class="link">
+                  <span class="reviews-item-link">читать полностью</span>
+                </p>
+              </div>
+            </div>
+            <div class="paginator">
+              <div class="paginator-inner">
+                <a class="prev" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18">
+            <defs>
+              <style>
+          .cls-1 {
+            fill: #214385;
+            fill-rule: evenodd;
+          }
+              </style>
+            </defs>
+            <path id="arrow-left.svg" class="cls-1" d="M313,660l9-9h2l-9,9h-2Zm0,0,9,9h2l-9-9h-2Z" transform="translate(-313 -651)"/>
+          </svg></a>
+                <ul>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#" class="active">2</a></li>
+                  <li><a href="#">3</a></li>
+                </ul>
+                <a class="next" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18">
+            <defs>
+              <style>
+          .cls-1 {
+            fill: #214385;
+            fill-rule: evenodd;
+          }
+              </style>
+            </defs>
+            <path id="arrow-right.svg" class="cls-1" d="M1607,660l-9,9h-2l9-9h2Zm0,0-9-9h-2l9,9h2Z" transform="translate(-1596 -651)"/>
+          </svg>
+              </a>
+              </div>
+            </div>
+          </div>
+          <div class="col col-2">
+            <form class="Leave-feedback" method="post" action="">
+              <p class="title"></p>
+              <input type="text" class="input" placeholder="Имя *">
+              <input type="text" class="input" placeholder="Номер заказа *">
+              <input type="text" class="input" placeholder="Город *">
+              <!--<textarea placeholder="Ваш отзыв" class="resize"></textarea>-->
+              <label class="label_textarea">
+                <textarea placeholder="Ваш отзыв"></textarea>
+              </label>
+              <div class="wrap-checkbox">
+                <input type="checkbox" hidden="hidden" id="01" checked>
+                <label for="01">Я согласен на обработку <a href="#">персональных данных</a></label>
+              </div>
+              <div class="captcha">
+                <img src="images/ico/captcha.png" alt="">
+              </div>
+              <button type="submit" class="download-btn">Отправить отзыв</button>
+              <p class="reviews-allert">Если у Вас остались вопросы по поводу ремонта вашей техники, Вы можете написать их директору компании</p>
+              <span class="download-btn" data-modal="">Написать письмо директору</span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  //= template/footer.html
+  <!---->

@@ -1,12 +1,48 @@
 $(document).ready(function () {
+
+  var stickyInit = function () {
+    var navigation = $('.product-registration-sticky'),
+      sidebarOffset = navigation.offset().top,
+      sidebarHeight = navigation.height(),
+      documentHeight = $(document).height(),
+      parent = $('.wrap-sticky').offset().top,
+      parentHeight = $('.wrap-sticky').height() - 80,
+      bottomOffset = parent + parentHeight - sidebarHeight;
+
+    $(window).scroll(function () {
+      $(window).scrollTop() > sidebarOffset ? navigation.addClass('sticky') : navigation.removeClass('sticky');
+      $(window).scrollTop() >= bottomOffset ? navigation.addClass('sticky-1') : navigation.removeClass('sticky-1');
+    });
+  };
+
+  if ($('.product-registration-sticky').length) {
+    stickyInit();
+  }
+
+  // показать редактируемые данные
+  $('.edit-btn').on('click', function () {
+    $('.product-registration-edit').hide();
+    $('.product-registration-hidden').show();
+    if ($('.product-registration-sticky').length) {
+      stickyInit();
+    }
+  });
+
+  // сменить пароль
+  $('.change-password').on('click', function () {
+    $(this).hide();
+    $('.change-password-hidden').show();
+  });
+
   // модалка
+  console.log('works');
   $('.modal').click(function (event) {
     if ($(event.target).closest(".modal>.block").length)
       return;
     $(".modal>.block, .modal").fadeOut(150);
     event.stopPropagation();
   });
-  $('.modal .close-modal').click(function () {
+  $('.modal .close').click(function () {
     $('.modal, .modal>.block').hide();
   });
   $('[data-modal]').on('click', function () {
@@ -39,17 +75,107 @@ $(document).ready(function () {
     });
     $('[data-tabLinks]').parent().find('[data-tabLinks]').filter(':first-child').trigger('click');
   });
+  // input number
+  ;
+  (function ($) {
+    "use strict";
+
+    function InputNumber(element) {
+      this.$el = $(element);
+      this.$input = this.$el.find('[type=text]');
+      this.$inc = this.$el.find('[data-increment]');
+      this.$dec = this.$el.find('[data-decrement]');
+      this.min = this.$el.attr('min') || false;
+      this.max = this.$el.attr('max') || false;
+      this.init();
+    }
+
+    InputNumber.prototype = {
+      init: function () {
+        this.$dec.on('click', $.proxy(this.decrement, this));
+        this.$inc.on('click', $.proxy(this.increment, this));
+      },
+
+      increment: function (e) {
+        var value = this.$input[0].value;
+        value++;
+        console.log(value, this.max);
+        if (!this.max || value <= this.max) {
+          this.$input[0].value = value++;
+        }
+      },
+
+      decrement: function (e) {
+        var value = this.$input[0].value;
+        value--;
+        if (!this.min || value >= this.min) {
+          this.$input[0].value = value;
+        }
+      }
+    };
+
+    $.fn.inputNumber = function (option) {
+      return this.each(function () {
+        var $this = $(this),
+          data = $this.data('inputNumber');
+
+        if (!data) {
+          $this.data('inputNumber', (data = new InputNumber(this)));
+        }
+      });
+    };
+
+    $.fn.inputNumber.Constructor = InputNumber;
+  })(jQuery);
+  $('.input-number').inputNumber();
+  // отзывы
+  $('.reviews-item-link').on('click', function () {
+    $(this).parents('.reviews-item').find('.paragraph').toggleClass('open');
+    $(this).text() == 'читать полностью' ? $(this).text('свернуть') : $(this).text('читать полностью');
+  });
   // открыть форму на мобиле
   $('.open-header-form').on('click', function () {
     $('.header-middle-serch').show().find('input').focus();
   });
+  // textarea
+  $('textarea').each(function () {
+    $(this).focus(function () {
+      $(this).parent().addClass('focus');
+    });
+    $(this).focusout(function () {
+      if ($(this).val() === '') {
+        $(this).parent().removeClass('focus');
+      } else {
+        $(this).parent().addClass('focus');
+      }
+    });
+  });
+  var div = document.querySelectorAll('.label_textarea');
+  var ta = document.querySelector('textarea');
+  [].forEach.call(div, function (itm, idx) {
+    var t = itm.children[0],
+      d = itm;
+    t.addEventListener('keydown', function () {
+      setTimeout(function () {
+        t.style.cssText = 'height:0px';
+        var height = Math.min(20 * 10, t.scrollHeight);
+        d.style.cssText = 'height:' + height + 'px';
+        t.style.cssText = 'height:' + height + 'px';
+      }, 0);
+    });
+  });
   // открыть/закрыть меню
   $('.absurd-desktop').on('click', function () {
-    $('.content-menu-block').slideToggle(150);
+    $('.content-menu-block').slideToggle(150, function () {
+      if ($('.product-registration-sticky').length) {
+        stickyInit();
+      }
+    });
+
   });
-  // 
+  // меню
   $('.absurd-hidden').on('click', function () {
-    $('.content-menu').show();
+    $('.content-menu').fadeToggle(0);
     $('html, body').addClass('open');
   });
   $('.catalog-menu-close').on('click', function () {
@@ -66,6 +192,12 @@ $(document).ready(function () {
     $('.menu-hidden').hide();
     $('html, body').removeClass('open');
   });
+  //палец на прокрутке
+  $('.finger-block').scroll(function () {
+    if ($(this).scrollLeft() > 1) {
+      $('.finger').fadeOut(150)
+    }
+  });
   // открыть / закрыть характеристики товара
   $('.open-catalog-hidden-block').on('click', function () {
     $(this).toggleClass('open')
@@ -75,6 +207,32 @@ $(document).ready(function () {
   $('.rigistered .name').on('click', function () {
     $(this).toggleClass('open')
     $('.dd_rigistered').fadeToggle(0);
+  });
+  // открыть / закрыть инфу в ЛК
+  $('.my-orders .more').on('click', function () {
+    $(this).parents('.my-orders-item').find('.hidden-info').slideToggle(150);
+    $(this).toggleClass('open');
+    $(this).hasClass('open') ? $(this).text('Свернуть') : $(this).text('Подробнее');
+  });
+  // выбор в ЛК
+  $('.wrap-btn .simple-btn').on('click', function () {
+    $(this).parent().find('.simple-btn').removeClass('active');
+    $(this).addClass('active');
+  });
+  // удалить товар в ЛК
+  $('.active-orders .delete').on('click', function () {
+    var root = $(this).parents('.wrap-active-orders');
+    $(this).parents('.my-orders-item').remove();
+    if ($('.my-orders-item', root).length === 0) {
+      $(root).text('У вас сейчас нет активных заказов')
+    }
+  });
+  $('.completed-orders .delete').on('click', function () {
+    var root = $(this).parents('.wrap-completed-orders');
+    $(this).parents('.my-orders-item').remove();
+    if ($('.my-orders-item', root).length === 0) {
+      $(root).text('У вас нет выполненных заказов')
+    }
   });
   // скрол шапки
   var resizeWindow = function () {

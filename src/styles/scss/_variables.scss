@@ -273,9 +273,6 @@ h2 {
   @media only screen and (max-width: 1023px) {
     font-size: 24px;
   }
-  @media only screen and (max-width:767px) {
-    font-size: 18px;
-  }
 }
 
 h4 {
@@ -292,8 +289,7 @@ h4 {
   margin-top: 80px;
   margin-bottom: 40px;
   @media only screen and (max-width: 767px) {
-    margin-top: 50px;
-    margin-bottom: 25px;
+    margin-top: 40px;
   }
   .wrap {
     display: flex;
@@ -309,9 +305,50 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     @media only screen and (max-width: 767px) {
       width: 100%;
       justify-content: flex-start;
+    }
+  }
+  .wrap-track-departure {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    width: 270px;
+    @media only screen and (max-width: 1023px) {
+      width: 250px;
+    }
+    @media only screen and (max-width:767px) {
+      top: -15px;
+    }
+    @media only screen and (max-width:599px) {
+      position: relative;
+      top: auto;
+      right: auto;
+      width: 100%;
+      text-align: left;
+      margin-top: 20px;
+    }
+  }
+  .track-departure {
+    display: inline-block;
+    vertical-align: top;
+    width: 270px;
+    height: 60px;
+    line-height: 58px;
+    padding-left: 70px;
+    font-size: 16px;
+    background: url('../images/ico/pochta.png')no-repeat 2px center / auto 96%;
+    color: $purple;
+    border: 1px solid $purple;
+    cursor: pointer;
+    user-select: none;
+    @media only screen and (max-width: 1023px) {
+      height: 40px;
+      line-height: 38px;
+      width: 250px;
+      padding-left: 50px;
     }
   }
   h2 {
@@ -328,6 +365,14 @@ h4 {
     margin-left: 20px;
     &:hover {
       color: $red;
+    }
+  }
+  .simple-btn {
+    &:hover {
+      color: $purple;
+    }
+    @media only screen and (max-width: 767px) {
+      margin: 20px 0;
     }
   }
 }
@@ -523,7 +568,8 @@ h4 {
   border: 1px solid $purple;
   color: $purple;
   font-size: 16px;
-  padding: 12px 15px;
+  //padding: 12px 15px;
+  height: 60px;
   text-align: center;
   cursor: pointer;
   user-select: none;
@@ -531,8 +577,10 @@ h4 {
   @media only screen and (max-width: 1023px) {
     font-size: 14px;
   }
-  &:hover {
-    background: #e1eafa;
+  &.active, &:hover {
+    background: #fef8e4;
+    border: 1px solid #d9a903;
+    color: #000;
   }
 }
 
@@ -784,6 +832,45 @@ h4 {
     white-space: nowrap;
     margin-bottom: 30px;
   }
+  .finger{
+    top: 0;
+  }
+}
+
+.tab_links--second {
+  width: 75%;
+  margin: 0 auto 40px;
+  @media only screen and (max-width: 1023px) {
+    width: 100%;
+    overflow: initial;
+    overflow-x: initial;
+    white-space: initial;
+    margin-bottom: 30px;
+  }
+  @media only screen and (max-width: 599px) {
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  [data-tabLinks] {
+    width: calc(33.333333% - 15px);
+    @media only screen and (max-width: 1023px) {
+      display: initial;
+      min-width: auto;
+      margin-right: auto;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    @media only screen and (max-width: 599px) {
+      display: block;
+      min-width: 250px;
+      margin-right: 25px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 [data-tabLinks] {
@@ -811,6 +898,23 @@ h4 {
 }
 
 .wrap-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  .forget {
+    color: $purple;
+    text-decoration: underline;
+    @media only screen and (max-width: 767px) {
+      font-size: 14px;
+    }
+    @media only screen and (max-width:413px) {
+      margin-top: 20px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
   label {
     position: relative;
     display: inline-block;
@@ -821,28 +925,40 @@ h4 {
     color: #000;
     cursor: pointer;
     user-select: none;
-    @media only screen and (max-width:767px) {
-      padding-left: 35px;
+    @media only screen and (max-width: 767px) {
+      padding-left: 28px;
+      font-size: 14px;
+      padding-top: 4px;
     }
-    &:before{
+    &:before {
       display: block;
       position: absolute;
       content: '';
       width: 20px;
       height: 20px;
-      top: 0px;
+      top: 50%;
+      margin-top: -8px;
       left: 0px;
       border: 1px solid #ffc601;
     }
+    a {
+      font-size: inherit;
+      color: $purple;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
-  input[type="checkbox"]:checked + label{
-    &:before{
+  input[type="checkbox"]:checked + label {
+    &:before {
       background: #ffc601 url('../images/ico/checked.png')no-repeat center center / 80%;
     }
   }
 }
 
-.input{
+.input,
+textarea {
   display: block;
   width: 100%;
   height: 40px;
@@ -854,52 +970,116 @@ h4 {
   color: #000;
   padding: 0 40px;
   margin-bottom: 20px;
-  @media only screen and (max-width:767px) {
+  @media only screen and (max-width: 767px) {
     padding: 0 15px;
   }
-  &::placeholder{
+  &::placeholder {
     color: $purple;
   }
-  &:focus{
+  &:focus {
     border: 1px solid #d9a903;
     background: #FFF;
     font-family: inherit;
   }
-  &:focus::placeholder{
+  &:focus::placeholder {
     color: rgba(0, 0, 0, 0);
   }
 }
 
-.yellow-btn{
+textarea {
+  height: 80px;
+  line-height: 1.2;
+  padding: 15px 40px 0;
+  @media only screen and (max-width: 767px) {
+    padding: 15px 15px 0;
+  }
+}
+
+.resize{
+  min-height: 80px;
+  resize: vertical;
+}
+
+.label_textarea {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+  &.focus {
+    textarea {
+      min-height: 80px !important;
+    }
+  }
+}
+
+.yellow-btn {
   display: block;
   width: 100%;
   height: 60px;
   line-height: 58px;
-  color: $purple;
-  border: 1px solid $purple;
   text-align: center;
   font-size: 16px;
-  background: none;
   margin-top: 40px;
-  &:hover{
-    background: #ffc601;
-    border: 1px solid #d9a903;
-    color: #000;
-  }
+  background: #ffc601;
+  border: 1px solid #d9a903;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
 }
 
-.download-btn{
+.download-btn {
   display: block;
   cursor: pointer;
   background: $purple;
+  border: 1px solid $blue;
   color: #FFF;
   text-align: center;
   font-size: 18px;
   height: 60px;
   line-height: 60px;
-  span{
+  span {
     font-weight: 700;
     margin-left: 5px;
     text-transform: uppercase;
+  }
+}
+
+.download-btn--small{
+  @media only screen and (max-width:413px) {
+    padding-top: 6px;
+    line-height: 1.2;
+  }
+}
+
+.input-number {
+  width: 120px;
+  font-size: 0;
+  background: #FFF;
+  box-shadow: 0 0 0 1px $purple;
+  .input-number-increment,
+  .input-number-decrement,
+  input {
+    width: 39px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+  }
+  input {
+    width: 42px;
+    border-left: 1px solid $purple;
+    border-right: 1px solid $purple;
+    background: #f2f3f7;
+  }
+  .input-number-increment {
+    background: url('../images/ico/plus-2.png')no-repeat center center;
+  }
+  .input-number-decrement {
+    background: url('../images/ico/minus-2.png')no-repeat center center;
   }
 }

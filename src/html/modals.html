@@ -1,0 +1,102 @@
+//= template/head.html
+
+<body data-anchor="top">
+  //= template/header.html
+  <main class="content">
+    <span class="scroll-top" data-href="top"></span>
+    <!---->
+    //= template/content-menu-block.html
+    <div class="wrap">
+      <br><br><br>
+      <ul>
+        <li><span data-modal="11">модалка 1</span></li>
+        <br>
+        <li><span data-modal="21">модалка 2</span></li>
+        <br>
+        <li><span data-modal="31">модалка 3</span></li>
+        <br>
+        <li><span data-modal="41">модалка 4</span></li>
+        <br>
+        <li><span data-modal="51">модалка 5</span></li>
+      </ul>
+    </div>
+    <div class="modal" id="11">
+      <form class="block" action="" method="post">
+        <span class="close">×</span>
+        <p class="title">Войдите в аккаунт</p>
+        <input class="input" type="text" placeholder="Введите e-mail">
+        <input class="input" type="password" placeholder="Пароль">
+        <div class="wrap-checkbox">
+          <input type="checkbox" hidden="hidden" id="1">
+          <label for="1">Подписка на новости</label>
+          <a class="forget" href="#">Забыли пароль?</a>
+        </div>
+        <button type="submit" class="download-btn">Войти</button>
+        <p class="modal-text">Eсли у вас нет аккаунта, зарегистрируйтесь как <strong>покупатель</strong> или как <strong>сервисный центр</strong></p>
+        <a class="yellow-btn" href="#">Зарегистрироваться</a>
+      </form>
+    </div>
+    <div class="modal" id="21">
+      <form class="block" action="" method="post">
+        <span class="close">×</span>
+        <p class="title">Ваше сообщение отправлено</p>
+        <button type="submit" class="download-btn">Ок</button>
+      </form>
+    </div>
+    <div class="modal" id="31">
+      <form class="block" action="" method="post">
+        <span class="close">×</span>
+        <p class="title">Ваше сообщение отправлено</p>
+        <input type="text" class="input" placeholder="Введите e-mail">
+        <div class="captcha">
+          <img src="images/ico/captcha.png" alt="">
+        </div>
+        <button type="submit" class="download-btn">Ок</button>
+      </form>
+    </div>
+    <div class="modal" id="41">
+      <form class="block" action="" method="post">
+        <span class="close">×</span>
+        <p class="title">Текст какой-то</p>
+        <button type="submit" class="download-btn">Продолжить покупки</button>
+        <button type="submit" class="download-btn">Перейти к оформлению</button>
+      </form>
+    </div>
+    <div class="modal" id="51">
+      <form class="block" action="" method="post">
+        <span class="close">×</span>
+        <p class="title">Регистрация</p>
+        <div class="modal-tab-links">
+          <span data-tabLinks="block-1" class="active">Я покупатель</span>
+          <span data-tabLinks="block-2">Сервисный центр</span>
+        </div>
+        <div class="tab_blocks">
+          <div data-tabContent="block-1">
+            <input class="input" type="text" placeholder="Фамилия, Имя, Отчество *">
+            <input class="input" type="text" placeholder="E-mail *">
+            <input class="input" type="password" placeholder="Пароль">
+            <input class="input" type="password" placeholder="Повторите пароль">
+          </div>
+          <div data-tabContent="block-2">
+            <input class="input" type="password" placeholder="Фамилия, Имя, Отчество">
+            <input class="input" type="password" placeholder="Компания">
+            <input class="input" type="password" placeholder="Город">
+            <input class="input" type="password" placeholder="Телефон">
+            <input class="input" type="password" placeholder="E-mail">
+            <input class="input" type="password" placeholder="Пароль">
+            <input class="input" type="password" placeholder="Повторите пароль">
+          </div>
+        </div>
+        <div class="wrap-checkbox">
+          <input type="checkbox" hidden="hidden" id="01">
+          <label for="01">Даю согласие<br>на обработку персональных данных </label>
+        </div>
+        <div class="captcha">
+          <img src="images/ico/captcha.png" alt="">
+        </div>
+        <button type="submit" class="download-btn">Зарегистрироваться</button>
+      </form>
+    </div>
+  </main>
+  //= template/footer.html
+  <!---->

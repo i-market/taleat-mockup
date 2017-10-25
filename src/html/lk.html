@@ -15,31 +15,54 @@
         </div>
       </div>
       <div class="wrap">
-        <div class="tab_links">
+        <div class="tab_links finger-block">
           <span data-tabLinks="block-1" class="active">Данные сервисного центра</span>
           <span data-tabLinks="block-2">Складские остатки</span>
           <span data-tabLinks="block-3">Полезная информация</span>
           <span data-tabLinks="block-4">Необходимые документы</span>
+          <span class="finger"></span>
         </div>
         <div class="tab_blocks">
           <div data-tabContent="block-1">
             <div class="tabs-inner">
               <form class="data-center" action="" method="post">
-                <p class="line">Иванов</p>
-                <p class="line">Иван</p>
-                <p class="line">Иванович</p>
-                <p class="line">ООО “Энергосбыт”</p>
-                <p class="line">г. Ставрополь</p>
-                <p class="line"><a href="tel:+7(495) 450-45-38">+7(495) 450-45-38</a></p>
-                <p class="line"><a href="mailto:energo@yandex.ru">energo@yandex.ru</a></p>
+                <div class="product-registration-edit">
+                  <div class="top">
+                    <span>Контактные данные</span>
+                    <span class="edit-btn">редактировать данные</span>
+                  </div>
+                  <div class="bottom">
+                    <p class="line">Иванов</p>
+                    <p class="line">Иван</p>
+                    <p class="line">Иванович</p>
+                    <p class="line">ООО “Энергосбыт”</p>
+                    <p class="line">г. Ставрополь</p>
+                    <p class="line"><a href="tel:+7(495) 450-45-38">+7(495) 450-45-38</a></p>
+                    <p class="line"><a href="mailto:energo@yandex.ru">energo@yandex.ru</a></p>
+                  </div>
+                </div>
+                <div class="product-registration-hidden">
+                  <p class="title">Введите контактные данные</p>
+                  <input type="text" class="input" placeholder="Фамилия:*">
+                  <input type="text" class="input" placeholder="Имя:*">
+                  <input type="text" class="input" placeholder="Отчество:*">
+                  <input type="text" class="input" placeholder="Компания:*">
+                  <input type="text" class="input" placeholder="Город:*">
+                  <input type="text" class="input" placeholder="Телефон:*">
+                  <input type="text" class="input" placeholder="E-mail:">
+                  <span class="yellow-btn">Сохранить изменения</span>
+                </div>
                 <div class="wrap-checkbox">
                   <input type="checkbox" hidden="hidden" id="1">
                   <label for="1">Подписка на новости</label>
                 </div>
-                <input type="password" class="input" placeholder="Старый пароль">
-                <input type="password" class="input" placeholder="Новый пароль">
-                <input type="password" class="input" placeholder="Новый пароль еще раз">
-                <button class="yellow-btn">Сохранить изменения</button>
+                <span class="simple-btn change-password">Сменить пароль</span>
+                <div class="change-password-hidden">
+                  <input type="password" class="input" placeholder="Старый пароль">
+                  <input type="password" class="input" placeholder="Новый пароль">
+                  <input type="password" class="input" placeholder="Новый пароль еще раз">
+                  <button class="yellow-btn">Сохранить изменения</button>
+                </div>
               </form>
             </div>
           </div>
@@ -111,10 +134,43 @@
                   <p class="text"><a href="#">Безопасность при ремонте бытовых приборов и техники</a></p>
                 </div>
               </div>
+              <div class="paginator">
+                <div class="paginator-inner">
+                  <a class="prev" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18">
+            <defs>
+              <style>
+          .cls-1 {
+            fill: #214385;
+            fill-rule: evenodd;
+          }
+              </style>
+            </defs>
+            <path id="arrow-left.svg" class="cls-1" d="M313,660l9-9h2l-9,9h-2Zm0,0,9,9h2l-9-9h-2Z" transform="translate(-313 -651)"/>
+          </svg></a>
+                  <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#" class="active">2</a></li>
+                    <li><a href="#">3</a></li>
+                  </ul>
+                  <a class="next" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18">
+            <defs>
+              <style>
+          .cls-1 {
+            fill: #214385;
+            fill-rule: evenodd;
+          }
+              </style>
+            </defs>
+            <path id="arrow-right.svg" class="cls-1" d="M1607,660l-9,9h-2l9-9h2Zm0,0-9-9h-2l9,9h2Z" transform="translate(-1596 -651)"/>
+          </svg>
+              </a>
+                </div>
+              </div>
             </div>
           </div>
           <div data-tabContent="block-4">
-             <div class="tabs-inner-sort">
+            <div class="tabs-inner-sort">
               <span class="text">Сортировать <span class="hidden">по брендам:</span></span>
               <select name="" id="">
               <option value="">Все бренды</option>
@@ -126,7 +182,7 @@
             </div>
             <div class="tabs-inner">
               <div class="required-documents">
-                <a class="download-btn" href="#">Техническое заключение<span>BABYLISS</span></a>
+                <a class="download-btn download-btn--small" href="#">Техническое заключение<span>BABYLISS</span></a>
                 <div class="wrap-documents">
                   <div class="item">
                     <a href="#" class="item-link pdf">
@@ -185,6 +241,39 @@
                     <a class="brand" href="#">Braun</a>
                   </div>
                 </div>
+                <div class="paginator">
+                  <div class="paginator-inner">
+                    <a class="prev" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18">
+            <defs>
+              <style>
+          .cls-1 {
+            fill: #214385;
+            fill-rule: evenodd;
+          }
+              </style>
+            </defs>
+            <path id="arrow-left.svg" class="cls-1" d="M313,660l9-9h2l-9,9h-2Zm0,0,9,9h2l-9-9h-2Z" transform="translate(-313 -651)"/>
+          </svg></a>
+                    <ul>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#" class="active">2</a></li>
+                      <li><a href="#">3</a></li>
+                    </ul>
+                    <a class="next" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18">
+            <defs>
+              <style>
+          .cls-1 {
+            fill: #214385;
+            fill-rule: evenodd;
+          }
+              </style>
+            </defs>
+            <path id="arrow-right.svg" class="cls-1" d="M1607,660l-9,9h-2l9-9h2Zm0,0-9-9h-2l9,9h2Z" transform="translate(-1596 -651)"/>
+          </svg>
+              </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -194,4 +283,3 @@
   </main>
   //= template/footer.html
   <!---->
-  //= template/modals.html

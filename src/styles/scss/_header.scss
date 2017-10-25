@@ -212,12 +212,14 @@
 .header-bottom {
   height: 60px;
   background: #6688cc;
-  &.scroll {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 11;
+  @media only screen and (max-width: 767px) {
+    &.scroll {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 11;
+    }
   }
   .wrap {
     display: flex;
@@ -234,22 +236,21 @@
   display: inline-block;
   vertical-align: middle;
   width: 60px;
-  height: 60px;
-  //cursor: none;
+  height: 60px; //cursor: none;
   //user-select: none;
   /*@media only screen and (max-width: 767px) {
     cursor: pointer;
   }*/
 }
 
-.absurd-desktop{
+.absurd-desktop {
   display: block;
   width: 60px;
   height: 60px;
   background: #fff url('../images/ico/hamburger.png')no-repeat center center;
   cursor: pointer;
   user-select: none;
-  @media only screen and (max-width:767px) {
+  @media only screen and (max-width: 767px) {
     display: none !important;
   }
 }
@@ -431,8 +432,8 @@
     border-bottom: 1px solid #7f9bd3;
   }
   .link {
-    &:last-child{
-      a{
+    &:last-child {
+      a {
         border: none;
       }
     }

@@ -197,6 +197,10 @@ button {
   }
 }
 
+@mixin no-img-background {
+  background: #e0e7f5 url('../images/ico/no-img.png')no-repeat center center;
+}
+
 .item-box {
   min-height: 360px;
   border: 1px solid #fff;
@@ -215,7 +219,7 @@ button {
     margin-bottom: 20px;
   }
   .no-img {
-    background: #e0e7f5 url('../images/ico/no-img.png')no-repeat center center;
+    @include no-img-background;
   }
   img {
     max-width: 100%;
@@ -774,6 +778,13 @@ h4 {
   }
   .img {
     margin-bottom: 15px;
+    .no-img-placeholder {
+      // same dimensions as the resized image
+      @include aspect-ratio($width: 270px, $height: 200px);
+      .content {
+        @include no-img-background;
+      }
+    }
   }
   img {
     width: 100%;

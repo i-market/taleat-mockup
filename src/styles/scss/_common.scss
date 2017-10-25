@@ -42,3 +42,35 @@ $purple: #6688cc;
     }
   }
 }
+
+// dev
+
+.TODO-mockup {
+  position: relative;
+  & > * {
+    opacity: 0.5;
+    filter: grayscale(100%);
+  }
+  &:before {
+    content: 'mockup';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: red;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem;
+    z-index: 1;
+  }
+  &:hover {
+    &:before {
+      display: none;
+    }
+    & > * {
+      opacity: 1;
+      filter: none;
+    }
+  }
+}

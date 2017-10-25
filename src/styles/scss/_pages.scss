@@ -767,13 +767,31 @@
   }
 }
 
+.catalo-items-grid{
+  margin-left: 25px;
+  @media only screen and (max-width:1023px) {
+    margin-left: 5px;
+  }
+  @media only screen and (max-width:767px) {
+    margin-left: -15px;
+  }
+  .col-3{
+    @media only screen and (max-width:599px) {
+      width: calc(100% - 30px);
+    }
+  }
+}
+
 .sort-block {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding-left: 40px;
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 1023px) {
+    padding-left: 20px;
+  }
+  @media only screen and (max-width:767px) {
     padding-left: 0;
   }
   .text {

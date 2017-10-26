@@ -99,7 +99,6 @@ gulp.task('js', function () {
       })
     }))
     .pipe(rigger())
-    .pipe(uglify())
     .pipe(gulp.dest('build/js/'))
     .pipe(browserSync.reload({
       stream: true

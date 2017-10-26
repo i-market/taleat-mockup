@@ -61,45 +61,8 @@ window.Mockup = {
   }
 };
 
-$(document).ready(onReady);
-$(document).ajaxComplete(onReady);
-
-function onReady() {
-
-  var stickyInit = function () {
-    var navigation = $('.product-registration-sticky'),
-      sidebarOffset = navigation.offset().top,
-      sidebarHeight = navigation.height(),
-      documentHeight = $(document).height(),
-      parent = $('.wrap-sticky').offset().top,
-      parentHeight = $('.wrap-sticky').height() - 80,
-      bottomOffset = parent + parentHeight - sidebarHeight;
-
-    $(window).scroll(function () {
-      $(window).scrollTop() > sidebarOffset ? navigation.addClass('sticky') : navigation.removeClass('sticky');
-      $(window).scrollTop() >= bottomOffset ? navigation.addClass('sticky-1') : navigation.removeClass('sticky-1');
-    });
-  };
-
-  if ($('.product-registration-sticky').length) {
-    stickyInit();
-  }
-
-  // показать редактируемые данные
-  $('.edit-btn').on('click', function () {
-    $('.product-registration-edit').hide();
-    $('.product-registration-hidden').show();
-    if ($('.product-registration-sticky').length) {
-      stickyInit();
-    }
-  });
-
-  // сменить пароль
-  $('.change-password').on('click', function () {
-    $(this).hide();
-    $('.change-password-hidden').show();
-  });
-
+function initComponents() {
+  $('.input-number').inputNumber();
   // модалка
   $('.modal').click(function (event) {
     if ($(event.target).closest(".modal>.block").length)
@@ -139,16 +102,6 @@ function onReady() {
     });
     $('[data-tabLinks]').parent().find('[data-tabLinks]').filter(':first-child').trigger('click');
   });
-  $('.input-number').inputNumber();
-  // отзывы
-  $('.reviews-item-link').on('click', function () {
-    $(this).parents('.reviews-item').find('.paragraph').toggleClass('open');
-    $(this).text() == 'читать полностью' ? $(this).text('свернуть') : $(this).text('читать полностью');
-  });
-  // открыть форму на мобиле
-  $('.open-header-form').on('click', function () {
-    $('.header-middle-serch').show().find('input').focus();
-  });
   // textarea
   $('textarea').each(function () {
     $(this).focus(function () {
@@ -175,6 +128,54 @@ function onReady() {
         t.style.cssText = 'height:' + height + 'px';
       }, 0);
     });
+  });
+}
+
+$(document).ajaxComplete(initComponents);
+$(document).ready(function () {
+  initComponents();
+
+  var stickyInit = function () {
+    var navigation = $('.product-registration-sticky'),
+      sidebarOffset = navigation.offset().top,
+      sidebarHeight = navigation.height(),
+      documentHeight = $(document).height(),
+      parent = $('.wrap-sticky').offset().top,
+      parentHeight = $('.wrap-sticky').height() - 80,
+      bottomOffset = parent + parentHeight - sidebarHeight;
+
+    $(window).scroll(function () {
+      $(window).scrollTop() > sidebarOffset ? navigation.addClass('sticky') : navigation.removeClass('sticky');
+      $(window).scrollTop() >= bottomOffset ? navigation.addClass('sticky-1') : navigation.removeClass('sticky-1');
+    });
+  };
+
+  if ($('.product-registration-sticky').length) {
+    stickyInit();
+  }
+
+  // показать редактируемые данные
+  $('.edit-btn').on('click', function () {
+    $('.product-registration-edit').hide();
+    $('.product-registration-hidden').show();
+    if ($('.product-registration-sticky').length) {
+      stickyInit();
+    }
+  });
+
+  // сменить пароль
+  $('.change-password').on('click', function () {
+    $(this).hide();
+    $('.change-password-hidden').show();
+  });
+  // отзывы
+  $('.reviews-item-link').on('click', function () {
+    $(this).parents('.reviews-item').find('.paragraph').toggleClass('open');
+    $(this).text() == 'читать полностью' ? $(this).text('свернуть') : $(this).text('читать полностью');
+  });
+  // открыть форму на мобиле
+  $('.open-header-form').on('click', function () {
+    $('.header-middle-serch').show().find('input').focus();
   });
   // открыть/закрыть меню
   $('.absurd-desktop').on('click', function () {
@@ -292,8 +293,8 @@ function onReady() {
           centerMode: true,
           centerPadding: '80px',
         }
-    }
-  ]
+      }
+    ]
   });
   // слайдер с магазинами
   $('.shops-slider').slick({
@@ -322,15 +323,15 @@ function onReady() {
             slidesToShow: 3,
             slidesToScroll: 3
           }
-    },
+        },
         {
           breakpoint: 767,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
           }
-    }
-  ]
+        }
+      ]
     });
   });
   // слайдер
@@ -357,15 +358,15 @@ function onReady() {
           slidesToShow: 3,
           slidesToScroll: 3
         }
-    },
+      },
       {
         breakpoint: 767,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2
         }
-    }
-  ]
+      }
+    ]
   });
   // слайдер товара в каталоге
   $('.slider-item-main').slick({
@@ -382,5 +383,4 @@ function onReady() {
     arrows: false,
     focusOnSelect: true
   });
-}
-
+});

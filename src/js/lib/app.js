@@ -44,7 +44,6 @@ $(document).ready(function () {
   });
 
   // модалка
-  console.log('works');
   $('.modal').click(function (event) {
     if ($(event.target).closest(".modal>.block").length)
       return;
@@ -107,7 +106,6 @@ $(document).ready(function () {
       increment: function (e) {
         var value = this.$input[0].value;
         value++;
-        console.log(value, this.max);
         if (!this.max || value <= this.max) {
           this.$input[0].value = value++;
         }

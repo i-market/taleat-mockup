@@ -92,8 +92,8 @@ $(document).ready(function () {
       this.$input = this.$el.find('[type=text]');
       this.$inc = this.$el.find('[data-increment]');
       this.$dec = this.$el.find('[data-decrement]');
-      this.min = this.$el.attr('min') || false;
-      this.max = this.$el.attr('max') || false;
+      this.min = this.$el.attr('data-min') || false;
+      this.max = this.$el.attr('data-max') || false;
       this.init();
     }
 

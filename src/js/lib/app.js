@@ -7,7 +7,11 @@ window.Mockup = {
     });
   }
 };
-$(document).ready(function () {
+
+$(document).ready(onReady);
+$(document).ajaxComplete(onReady);
+
+function onReady() {
 
   var stickyInit = function () {
     var navigation = $('.product-registration-sticky'),
@@ -376,4 +380,5 @@ $(document).ready(function () {
     arrows: false,
     focusOnSelect: true
   });
-});
+}
+

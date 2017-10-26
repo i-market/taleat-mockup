@@ -112,6 +112,7 @@ function onReady() {
         value++;
         if (!this.max || value <= this.max) {
           this.$input[0].value = value++;
+          this.$input.trigger('change');
         }
       },
 
@@ -120,6 +121,7 @@ function onReady() {
         value--;
         if (!this.min || value >= this.min) {
           this.$input[0].value = value;
+          this.$input.trigger('change');
         }
       }
     };

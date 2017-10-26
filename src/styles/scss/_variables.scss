@@ -197,10 +197,6 @@ button {
   }
 }
 
-@mixin no-img-background {
-  background: #e0e7f5 url('../images/ico/no-img.png')no-repeat center center;
-}
-
 .item-box {
   min-height: 360px;
   border: 1px solid #fff;

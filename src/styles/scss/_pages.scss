@@ -1717,6 +1717,13 @@
     img {
       width: 100%;
     }
+    .no-img-placeholder {
+      @include aspect-ratio($width: 4, $height: 3);
+      width: 100%;
+      .content {
+        @include no-img-background;
+      }
+    }
   }
   .delete {
     width: 12px;
@@ -1812,15 +1819,23 @@
     align-items: center;
     flex-wrap: wrap;
     .text {
-      width: calc(100% - 270px);
+      @mixin font {
+        font-size: 18px;
+        line-height: 1.2;
+      }
+      @include font;
       color: $red;
-      font-size: 18px;
-      line-height: 1.2;
+      width: calc(100% - 270px);
       padding-right: 15px;
       margin-top: 20px;
       @media only screen and (max-width: 767px) {
         width: 100%;
         text-align: center;
+      }
+      &.editable-area {
+        @include editable-children {
+          @include font;
+        };
       }
     }
     .yellow-btn {

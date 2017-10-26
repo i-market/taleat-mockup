@@ -1,6 +1,10 @@
 // same as in _variables.scss
 $purple: #6688cc;
 
+@mixin no-img-background {
+  background: #e0e7f5 url('../images/ico/no-img.png')no-repeat center center;
+}
+
 @mixin aspect-ratio($width, $height) {
   position: relative;
   &:before {

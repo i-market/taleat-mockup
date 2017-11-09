@@ -1,56 +1,3 @@
-// input number
-(function ($) {
-  "use strict";
-
-  function InputNumber(element) {
-    this.$el = $(element);
-    this.$input = this.$el.find('[type=text]');
-    this.$inc = this.$el.find('[data-increment]');
-    this.$dec = this.$el.find('[data-decrement]');
-    this.min = this.$el.attr('data-min') || false;
-    this.max = this.$el.attr('data-max') || false;
-    this.init();
-  }
-
-  InputNumber.prototype = {
-    init: function () {
-      this.$dec.on('click', $.proxy(this.decrement, this));
-      this.$inc.on('click', $.proxy(this.increment, this));
-    },
-
-    increment: function (e) {
-      var value = this.$input[0].value;
-      value++;
-      if (!this.max || value <= this.max) {
-        this.$input[0].value = value++;
-        this.$input.trigger('change');
-      }
-    },
-
-    decrement: function (e) {
-      var value = this.$input[0].value;
-      value--;
-      if (!this.min || value >= this.min) {
-        this.$input[0].value = value;
-        this.$input.trigger('change');
-      }
-    }
-  };
-
-  $.fn.inputNumber = function (option) {
-    return this.each(function () {
-      var $this = $(this),
-        data = $this.data('inputNumber');
-
-      if (!data) {
-        $this.data('inputNumber', (data = new InputNumber(this)));
-      }
-    });
-  };
-
-  $.fn.inputNumber.Constructor = InputNumber;
-})(jQuery);
-
 window.Mockup = {
   openModal: function($modal) {
     var duration = 150;
@@ -61,79 +8,9 @@ window.Mockup = {
   }
 };
 
-function initComponents() {
-  $('.input-number').inputNumber();
-  // модалка
-  $('.modal').click(function (event) {
-    if ($(event.target).closest(".modal>.block").length)
-      return;
-    $(".modal>.block, .modal").fadeOut(150);
-    event.stopPropagation();
-  });
-  $('.modal .close-modal').click(function () {
-    $('.modal, .modal>.block').hide();
-  });
-  $('[data-modal]').on('click', function () {
-    var dataModal = $(this).attr('data-modal'),
-      dataId = $('#' + dataModal);
-    Mockup.openModal(dataId);
-  });
-  // якоря
-  $("[data-href]").on("click", function (t) {
-    var anchor = $(this).data('href');
-    $("html, body").stop().animate({
-      scrollTop: $("[data-anchor=" + anchor + "]").offset().top
-    }, 700);
-    t.preventDefault();
-  });
-  // аккордион
-  $(".accordeon .accordeon-inner").prev().on('click', function () {
-    $('.accordeon-inner', '.accordeon').not(this).slideUp(150);
-    $(this).next().not(':visible').slideDown(150);
-    $('.accordeon-title', '.accordeon').not(this).removeClass('active');
-    $(this).toggleClass('active');
-  });
-  // табы
-  $(function () {
-    $('[data-tabLinks]').on('click', function () {
-      var targetNode = $('[data-tabContent=' + $(this).attr('data-tabLinks') + ']');
-      $(this).parent().find('[data-tabLinks]').removeClass('active').filter(this).addClass('active');
-      targetNode.parent().find('[data-tabContent]').hide().filter(targetNode).show();
-    });
-    $('[data-tabLinks]').parent().find('[data-tabLinks]').filter(':first-child').trigger('click');
-  });
-  // textarea
-  $('textarea').each(function () {
-    $(this).focus(function () {
-      $(this).parent().addClass('focus');
-    });
-    $(this).focusout(function () {
-      if ($(this).val() === '') {
-        $(this).parent().removeClass('focus');
-      } else {
-        $(this).parent().addClass('focus');
-      }
-    });
-  });
-  var div = document.querySelectorAll('.label_textarea');
-  var ta = document.querySelector('textarea');
-  [].forEach.call(div, function (itm, idx) {
-    var t = itm.children[0],
-      d = itm;
-    t.addEventListener('keydown', function () {
-      setTimeout(function () {
-        t.style.cssText = 'height:0px';
-        var height = Math.min(20 * 10, t.scrollHeight);
-        d.style.cssText = 'height:' + height + 'px';
-        t.style.cssText = 'height:' + height + 'px';
-      }, 0);
-    });
-  });
-}
+$(document).ready(onReady);
 
-$(document).ajaxComplete(initComponents);
-$(document).ready(function () {
-  initComponents();
+function onReady() {
 
   var stickyInit = function () {
     var navigation = $('.product-registration-sticky'),
@@ -168,6 +45,101 @@ $(document).ready(function () {
     $(this).hide();
     $('.change-password-hidden').show();
   });
+
+  // модалка
+  $('.modal').click(function (event) {
+    if ($(event.target).closest(".modal>.block").length)
+      return;
+    $(".modal>.block, .modal").fadeOut(150);
+    event.stopPropagation();
+  });
+  $('.modal .close-modal').click(function () {
+    $('.modal, .modal>.block').hide();
+  });
+  $('[data-modal]').on('click', function (evt) {
+    evt.preventDefault();
+    var dataModal = $(this).attr('data-modal'),
+      dataId = $('#' + dataModal);
+    Mockup.openModal(dataId);
+  });
+  // якоря
+  $("[data-href]").on("click", function (t) {
+    var anchor = $(this).data('href');
+    $("html, body").stop().animate({
+      scrollTop: $("[data-anchor=" + anchor + "]").offset().top
+    }, 700);
+    t.preventDefault();
+  });
+  // аккордион
+  $(".accordeon .accordeon-inner").prev().on('click', function () {
+    $('.accordeon-inner', '.accordeon').not(this).slideUp(150);
+    $(this).next().not(':visible').slideDown(150);
+    $('.accordeon-title', '.accordeon').not(this).removeClass('active');
+    $(this).toggleClass('active');
+  });
+  // табы
+  $(function () {
+    $('[data-tabLinks]').on('click', function () {
+      var targetNode = $('[data-tabContent=' + $(this).attr('data-tabLinks') + ']');
+      $(this).parent().find('[data-tabLinks]').removeClass('active').filter(this).addClass('active');
+      targetNode.parent().find('[data-tabContent]').hide().filter(targetNode).show();
+    });
+    $('[data-tabLinks]').parent().find('[data-tabLinks]').filter(':first-child').trigger('click');
+  });
+  // input number
+  ;
+  (function ($) {
+    "use strict";
+
+    function InputNumber(element) {
+      this.$el = $(element);
+      this.$input = this.$el.find('[type=text]');
+      this.$inc = this.$el.find('[data-increment]');
+      this.$dec = this.$el.find('[data-decrement]');
+      this.min = this.$el.attr('data-min') || false;
+      this.max = this.$el.attr('data-max') || false;
+      this.init();
+    }
+
+    InputNumber.prototype = {
+      init: function () {
+        this.$dec.on('click', $.proxy(this.decrement, this));
+        this.$inc.on('click', $.proxy(this.increment, this));
+      },
+
+      increment: function (e) {
+        var value = this.$input[0].value;
+        value++;
+        if (!this.max || value <= this.max) {
+          this.$input[0].value = value++;
+          this.$input.trigger('change');
+        }
+      },
+
+      decrement: function (e) {
+        var value = this.$input[0].value;
+        value--;
+        if (!this.min || value >= this.min) {
+          this.$input[0].value = value;
+          this.$input.trigger('change');
+        }
+      }
+    };
+
+    $.fn.inputNumber = function (option) {
+      return this.each(function () {
+        var $this = $(this),
+          data = $this.data('inputNumber');
+
+        if (!data) {
+          $this.data('inputNumber', (data = new InputNumber(this)));
+        }
+      });
+    };
+
+    $.fn.inputNumber.Constructor = InputNumber;
+  })(jQuery);
+  $('.input-number').inputNumber();
   // отзывы
   $('.reviews-item-link').on('click', function () {
     $(this).parents('.reviews-item').find('.paragraph').toggleClass('open');
@@ -176,6 +148,33 @@ $(document).ready(function () {
   // открыть форму на мобиле
   $('.open-header-form').on('click', function () {
     $('.header-middle-serch').show().find('input').focus();
+  });
+  // textarea
+  $('textarea').each(function () {
+    $(this).focus(function () {
+      $(this).parent().addClass('focus');
+    });
+    $(this).focusout(function () {
+      if ($(this).val() === '') {
+        $(this).parent().removeClass('focus');
+      } else {
+        $(this).parent().addClass('focus');
+      }
+    });
+  });
+  var div = document.querySelectorAll('.label_textarea');
+  var ta = document.querySelector('textarea');
+  [].forEach.call(div, function (itm, idx) {
+    var t = itm.children[0],
+      d = itm;
+    t.addEventListener('keydown', function () {
+      setTimeout(function () {
+        t.style.cssText = 'height:0px';
+        var height = Math.min(20 * 10, t.scrollHeight);
+        d.style.cssText = 'height:' + height + 'px';
+        t.style.cssText = 'height:' + height + 'px';
+      }, 0);
+    });
   });
   // открыть/закрыть меню
   $('.absurd-desktop').on('click', function () {
@@ -293,8 +292,8 @@ $(document).ready(function () {
           centerMode: true,
           centerPadding: '80px',
         }
-      }
-    ]
+    }
+  ]
   });
   // слайдер с магазинами
   $('.shops-slider').slick({
@@ -323,15 +322,15 @@ $(document).ready(function () {
             slidesToShow: 3,
             slidesToScroll: 3
           }
-        },
+    },
         {
           breakpoint: 767,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
           }
-        }
-      ]
+    }
+  ]
     });
   });
   // слайдер
@@ -358,15 +357,15 @@ $(document).ready(function () {
           slidesToShow: 3,
           slidesToScroll: 3
         }
-      },
+    },
       {
         breakpoint: 767,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2
         }
-      }
-    ]
+    }
+  ]
   });
   // слайдер товара в каталоге
   $('.slider-item-main').slick({
@@ -383,4 +382,5 @@ $(document).ready(function () {
     arrows: false,
     focusOnSelect: true
   });
-});
+}
+

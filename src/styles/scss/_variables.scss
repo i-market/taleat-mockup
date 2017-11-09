@@ -204,8 +204,7 @@ button {
   background: #FFF;
   padding: 20px;
   &:hover {
-    border: 1px solid #e3e5f1;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    @include card;
   }
   .img {
     display: flex;
@@ -868,7 +867,7 @@ h4 {
     overflow-x: auto;
     white-space: nowrap;
   }
-  [data-tabLinks] {
+  [data-tabLinks], .tab-link {
     width: calc(33.333333% - 15px);
     @media only screen and (max-width: 1023px) {
       display: initial;
@@ -889,7 +888,7 @@ h4 {
   }
 }
 
-[data-tabLinks] {
+[data-tabLinks], .tab-link {
   width: calc(25% - 15px);
   height: 60px;
   line-height: 58px;
@@ -911,6 +910,12 @@ h4 {
     background: #f3eede;
     border: 1px solid #d9a903;
   }
+}
+
+// prevent FOUC
+// assume `:first-child` = active on load, `[style]` = js init is complete
+[data-tabContent]:not(:first-child):not([style]) {
+  display: none;
 }
 
 .wrap-checkbox {
@@ -982,7 +987,6 @@ textarea {
   font-size: 16px;
   border: 1px solid #e3e9f4;
   background: #f2f3f7;
-  color: $purple;
   color: #000;
   padding: 0 40px;
   margin-bottom: 20px;

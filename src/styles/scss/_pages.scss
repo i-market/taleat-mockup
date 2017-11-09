@@ -1467,21 +1467,8 @@ $lightYellow: #faebc1;
   }
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-  z-index: 101;
-  overflow-y: auto;
+@mixin modal-like {
   .block {
-    position: relative;
-    top: 60px;
-    left: 50%;
-    margin-left: -285px;
     width: 570px;
     padding: 50px 100px;
     background: #FFF;
@@ -1540,7 +1527,7 @@ $lightYellow: #faebc1;
     display: flex;
     margin-bottom: 40px;
   }
-  [data-tabLinks] {
+  [data-tabLinks], .tab-link {
     padding: 0;
     margin: 0;
     text-align: center;
@@ -1555,6 +1542,48 @@ $lightYellow: #faebc1;
     &.active {
       border: 1px solid $purple;
       border-bottom: 1px solid #fff;
+    }
+  }
+}
+
+.modal {
+  @include modal-like;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  overflow-y: auto;
+  .block {
+    position: relative;
+    top: 60px;
+    left: 50%;
+    margin-left: -285px;
+  }
+}
+
+.modal-like {
+  @include modal-like;
+  .block {
+    //@include card;
+    margin: 0 auto;
+  }
+}
+
+.form {
+  .form__message {
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #fef8e4;
+    color: #000;
+    &.form__message--error {
+      color: rgba(darken(red, 20%), 0.8);
+      background: lighten(red, 46%);
     }
   }
 }

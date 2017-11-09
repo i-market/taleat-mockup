@@ -1,8 +1,14 @@
 // same as in _variables.scss
 $purple: #6688cc;
+$blue: #214385;
 
 @mixin no-img-background {
   background: #e0e7f5 url('../images/ico/no-img.png')no-repeat center center;
+}
+
+@mixin card {
+  border: 1px solid #e3e5f1;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 }
 
 @mixin aspect-ratio($width, $height) {
@@ -32,6 +38,12 @@ $purple: #6688cc;
   }
 }
 
+// TODO
+@mixin default-font {
+  @include paragraph-like-font;
+  font-weight: normal;
+}
+
 @mixin editable-children {
   // shouldn't intersect with mockup styles
   p {
@@ -50,13 +62,74 @@ $purple: #6688cc;
   }
 }
 
-.editable-area {
-  // used as a marker. only put styles in the modifiers below.
+@mixin form-elements {
+  // .input like
+  input:not([type=submit]):not([type=checkbox]), textarea {
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 38px;
+    font-size: 16px;
+    border: 1px solid #e3e9f4;
+    background: #f2f3f7;
+    color: #000;
+    padding: 0 40px;
+    margin-bottom: 20px;
+    @media only screen and (max-width: 767px) {
+      padding: 0 15px;
+    }
+    &::placeholder {
+      color: $purple;
+    }
+    &:focus {
+      border: 1px solid #d9a903;
+      background: #FFF;
+      font-family: inherit;
+    }
+    &:focus::placeholder {
+      color: rgba(0, 0, 0, 0);
+    }
+  }
+  // .download-btn like
+  input[type=submit], button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $purple;
+    color: $purple;
+    font-size: 16px;
+    //height: 60px;
+    padding: 1.6em 3.2em;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    background: none;
+    @media only screen and (max-width: 1023px) {
+      font-size: 14px;
+    }
+    &.active, &:hover {
+      background: #fef8e4;
+      border: 1px solid #d9a903;
+      color: #000;
+    }
+  }
+}
 
-  &.editable-area--full {
+
+.editable-area {
+  // used as a marker. don't put styles here.
+}
+
+.default-page {
+  &.editable-area {
     @include editable-children;
     &, p {
       @include paragraph-like-font;
+
+      // improve readability
+      font-weight: normal;
+      color: #333;
+
     }
     img {
       display: inline;
@@ -73,7 +146,7 @@ $purple: #6688cc;
     filter: grayscale(100%);
   }
   &:before {
-    content: 'mockup';
+    content: 'макет';
     display: block;
     position: absolute;
     left: 0;

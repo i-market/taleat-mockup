@@ -1,7 +1,7 @@
 @import '_common.scss';
 
 $yellow: #ffc900;
-$lightYellow: #faebc1;
+$light-yellow: #faebc1;
 
 .empty-state-page {
   text-align: center;
@@ -20,7 +20,7 @@ $lightYellow: #faebc1;
   margin-left: -($width / 2);
   z-index: 200;
   padding: 5px 0;
-  background: $lightYellow;
+  background: $light-yellow;
   border: 1px solid #f2c174;
   border-top: none;
   color: rgba(#000, 0.8);
@@ -1585,6 +1585,21 @@ $lightYellow: #faebc1;
       color: rgba(darken(red, 20%), 0.8);
       background: lighten(red, 46%);
     }
+    &.form__message--success {
+      color: rgba(darken($green, 20%), 0.8);
+      background: desaturate(lighten($green, 63%), 40%);
+    }
+  }
+}
+
+.validate {
+  input:not(:focus).error {
+    border: 1px solid $red;
+  }
+  label.error {
+    display: block;
+    margin-bottom: 20px;
+    color: $red;
   }
 }
 

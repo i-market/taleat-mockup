@@ -1193,8 +1193,11 @@ $light-yellow: #faebc1;
 
 .stock-balance {
   .text {
-    font-size: 15px;
-    line-height: 30px;
+    @mixin font {
+      font-size: 15px;
+      line-height: 30px;
+    }
+    @include font;
     text-align: center;
     color: #000;
     margin-bottom: 20px;
@@ -1205,6 +1208,11 @@ $light-yellow: #faebc1;
     }
     a {
       color: $purple;
+    }
+    &.editable-area {
+      @include editable-children {
+        @include font;
+      };
     }
   }
 }

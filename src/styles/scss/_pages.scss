@@ -1268,24 +1268,23 @@ $light-yellow: #faebc1;
       vertical-align: top;
       padding-left: 55px;
       padding-top: 5px;
+      background: url('../images/ico/file.png')no-repeat left top;
+      &.pdf {
+        background: url('../images/ico/pdf-2.png')no-repeat left top
+      }
+      &.doc {
+        background: url('../images/ico/doc.png')no-repeat left top
+      }
+      &.xls {
+        background: url('../images/ico/xls.png')no-repeat left top
+      }
+      &.rar {
+        background: url('../images/ico/rar.png')no-repeat left top
+      }
+      &.zip {
+        background: url('../images/ico/zip.png')no-repeat left top
+      }
     }
-
-    .pdf {
-      background: url('../images/ico/pdf-2.png')no-repeat left top
-    }
-    .doc {
-      background: url('../images/ico/doc.png')no-repeat left top
-    }
-    .xls {
-      background: url('../images/ico/xls.png')no-repeat left top
-    }
-    .rar {
-      background: url('../images/ico/rar.png')no-repeat left top
-    }
-    .zip {
-      background: url('../images/ico/zip.png')no-repeat left top
-    }
-
     .size {
       color: #999;
     }
@@ -1293,6 +1292,7 @@ $light-yellow: #faebc1;
       margin-top: 10px;
       display: block;
       color: #333;
+      line-height: 1.2;
     }
     .brand {
       position: absolute;

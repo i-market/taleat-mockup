@@ -14,17 +14,17 @@
   plumber = require('gulp-plumber'),
   tinypng = require('gulp-tinypng-compress');
 
-	let config = {
-		paths: {
-			sources: {
-				noCompile: [
+let config = {
+  paths: {
+    sources: {
+      noCompile: [
 					'src/images/**/*.*',
 					'src/fonts/**/*.*'
 				]
-			}
-		}
-	};
-  
+    }
+  }
+};
+
 /*browserSync*/
 gulp.task('browserSync', function () {
   browserSync({
@@ -44,8 +44,10 @@ gulp.task('clean', function () {
 
 /*no-compile(static)*/
 gulp.task('static', function () {
-  return gulp.src(config.paths.sources.noCompile,  {base: './src/'}) 
-  .pipe(gulp.dest('./build'));
+  return gulp.src(config.paths.sources.noCompile, {
+      base: './src/'
+    })
+    .pipe(gulp.dest('./build'));
 });
 
 /*styles*/

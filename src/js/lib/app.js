@@ -19,6 +19,13 @@ $(document).ready(function () {
     stickyInit();
   }
 
+  // technical-conclusion-item
+  $('.technical-conclusion-item .hidden-block').on('click', function () {
+    $(this).toggleClass('open');
+    $(this).find('.visible-text').slideToggle(150);
+    $(this).find('.hidden-text').slideToggle(150);
+  });
+
   // показать редактируемые данные
   $('.edit-btn').on('click', function () {
     $('.product-registration-edit').hide();

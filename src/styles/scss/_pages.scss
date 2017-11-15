@@ -2221,6 +2221,9 @@ $light-yellow: #faebc1;
     font-size: 16px;
     color: #000;
     margin-bottom: 15px;
+    a {
+      color: $purple;
+    }
   }
   textarea {
     margin-top: 40px;

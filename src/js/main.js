@@ -14,7 +14,7 @@
 //= lib/dropdown.js
 
 /*
- * dropdown
+ * fancybox
  */
 //= lib/jquery.fancybox.min.js
 

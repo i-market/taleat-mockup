@@ -796,16 +796,16 @@ $light-yellow: #faebc1;
   }
 }
 
-.catalo-items-grid{
+.catalo-items-grid {
   margin-left: 25px;
-  @media only screen and (max-width:1023px) {
+  @media only screen and (max-width: 1023px) {
     margin-left: 5px;
   }
   @media only screen and (max-width:767px) {
     margin-left: -15px;
   }
-  .col-3{
-    @media only screen and (max-width:599px) {
+  .col-3 {
+    @media only screen and (max-width: 599px) {
       width: calc(100% - 30px);
     }
   }
@@ -1671,7 +1671,7 @@ $light-yellow: #faebc1;
     overflow: hidden;
     color: #666;
     margin-bottom: 5px;
-    &.open{
+    &.open {
       height: auto;
       overflow: auto;
     }
@@ -1698,9 +1698,9 @@ $light-yellow: #faebc1;
   @media only screen and (max-width:767px) {
     padding: 25px 15px;
   }
-  .captcha{
+  .captcha {
     margin-bottom: 50px;
-    img{
+    img {
       max-width: 100%;
     }
   }
@@ -1939,8 +1939,8 @@ $light-yellow: #faebc1;
       }
     }
   }
-  .new-line{
-    @media only screen and (max-width:767px) {
+  .new-line {
+    @media only screen and (max-width: 767px) {
       display: block;
       margin-top: 15px;
     }
@@ -2115,7 +2115,8 @@ $light-yellow: #faebc1;
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 20px;
-    .simple-btn, .fs-dropdown {
+    .simple-btn,
+    .fs-dropdown {
       width: calc(50% - 10px);
       @media only screen and (max-width: 767px) {
         width: 100%;
@@ -2185,7 +2186,7 @@ $light-yellow: #faebc1;
 .product-registration-hidden {
   display: none;
   margin-bottom: 50px;
-  .title{
+  .title {
     color: #000;
     font-size: 16px;
     font-weight: 700;
@@ -2204,7 +2205,7 @@ $light-yellow: #faebc1;
     color: #000;
     font-size: 16px;
     font-weight: 700;
-    span{
+    span {
       width: 50%;
     }
   }
@@ -2226,7 +2227,7 @@ $light-yellow: #faebc1;
   }
 }
 
-.change-password-hidden{
+.change-password-hidden {
   display: none;
 }
 
@@ -2239,5 +2240,148 @@ $light-yellow: #faebc1;
     .submit {
       width: 100%;
     }
+  }
+}
+
+.technical-conclusion-form {
+  h3 {
+    color: $blue;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 40px 0 20px 250px;
+    @media only screen and (max-width: 1023px) {
+      margin: 40px 0 20px;
+    }
+  }
+  .input,
+  textarea,
+  .label_textarea {
+    margin-bottom: 0;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 875px;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .left {
+    width: 250px;
+    font-size: 16px;
+    text-align: right;
+    color: #000;
+    padding-right: 20px;
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+  }
+  .right {
+    width: calc(100% - 250px);
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+  .item--col {
+    .col {
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .item--align-start {
+    align-items: flex-start;
+  }
+  .text {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  .bottom {
+    margin-top: 100px;
+  }
+  .btn {
+    text-transform: uppercase;
+  }
+}
+
+.parts-in-stock-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  @media only screen and (max-width: 767px) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border;
+    &:last-child {
+      border: none;
+    }
+  }
+  .text {
+    font-weight: 700;
+  }
+  .stock {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    padding-left: 20px;
+    @media only screen and (max-width: 767px) {
+      width: 150px;
+      padding-left: 0;
+    }
+  }
+  .wrap-radio {
+    margin-bottom: 0;
+  }
+}
+
+.wrap-stock-input {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: calc(100% - 200px);
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.wrap-stock-item {
+  width: calc(50% - 5px);
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+
+.technical-conclusion-2 {
+  .title {
+    margin-left: 45px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 40px;
+    @media only screen and (max-width: 599px) {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 45px;
+  }
+  .block {
+    max-width: 570px;
+    margin: 0 auto;
   }
 }

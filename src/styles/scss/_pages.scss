@@ -10,6 +10,10 @@ $light-yellow: #faebc1;
   }
 }
 
+.text-nowrap {
+  white-space: nowrap;
+}
+
 #global-loader {
   $width: 120px;
   display: none;

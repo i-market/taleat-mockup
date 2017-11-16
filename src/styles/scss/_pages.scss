@@ -778,6 +778,9 @@ $light-yellow: #faebc1;
   @media only screen and (max-width: 767px) {
     width: 100%;
   }
+  &.catalog-pages-block--index {
+    padding-top: 30px;
+  }
   .col-3 {
     margin-bottom: 30px;
     @media only screen and (max-width: 1023px) {

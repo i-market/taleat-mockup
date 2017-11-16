@@ -835,6 +835,7 @@ h4 {
 }
 
 .back-link {
+  margin-bottom: 20px;
   @media only screen and (min-width: 768px) {
     display: none;
   }
@@ -960,6 +961,7 @@ h4 {
     color: #000;
     cursor: pointer;
     user-select: none;
+    line-height: 1.2;
     @media only screen and (max-width: 767px) {
       padding-left: 28px;
       font-size: 14px;

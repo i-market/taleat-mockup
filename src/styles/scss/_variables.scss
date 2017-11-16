@@ -216,6 +216,8 @@ button {
     align-items: center;
     height: 170px;
     margin-bottom: 20px;
+    background: no-repeat center center;
+    background-size: contain;
   }
   .no-img {
     @include no-img-background;
@@ -245,6 +247,7 @@ button {
     padding-bottom: 15px;
     border-bottom: 1px solid #e3e5f1;
     margin-bottom: 25px;
+    line-height: 1.2;
   }
   .price-info {
     display: flex;

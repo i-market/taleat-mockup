@@ -1619,13 +1619,13 @@ $light-yellow: #faebc1;
 
 .validate {
   input:not(:focus).error {
-    border: 1px solid $red;
+    border: 1px solid $error-red;
   }
   label.error {
     display: block;
     margin-bottom: 20px;
     line-height: 1.2;
-    color: $red;
+    color: $error-red;
   }
 }
 

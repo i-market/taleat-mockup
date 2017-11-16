@@ -768,6 +768,8 @@ h4 {
 
 .catalog-title-img {
   margin-left: auto;
+  // same as homepage slider
+  opacity: 0.15;
   @media only screen and (max-width: 767px) {
     width: 100px;
   }

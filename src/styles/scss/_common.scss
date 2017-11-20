@@ -40,29 +40,72 @@ $error-red: #dd4b39;
   }
 }
 
-// TODO
-@mixin default-font {
-  @include paragraph-like-font;
-  font-weight: normal;
-}
-
 @mixin editable-children {
   // shouldn't intersect with mockup styles
-  p {
+  p, span {
     @content;
+  }
+  p,
+  ul, ol,
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
+  table {
     margin-bottom: 24px;
     @media only screen and (max-width: 767px) {
       margin-bottom: 15px;
     }
   }
-  span {
-    @content;
+  ol ol, ol ul, ul ol, ul ul {
+    margin-bottom: 0;
   }
   a {
     color: $purple;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
+    }
+  }
+  ul, ol {
+    // .list like
+    li {
+      @content;
+      position: relative;
+      padding-left: 25px;
+      @media only screen and (max-width: 767px) {
+        font-size: 14px;
+      }
+      &:before {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 8px;
+        height: 8px;
+        top: 8px;
+        left: 0px;
+        border-radius: 50%;
+        background: $purple;
+      }
+    }
+  }
+  table {
+    $border: #ddd;
+    border: 1px solid $border;
+    width: 100%;
+    max-width: 100%;
+    thead {
+      th {
+        vertical-align: bottom;
+        border-bottom: 2px solid $border;
+      }
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+      line-height: 1.2;
+      border: 1px solid $border;
+    }
+    td {
+      vertical-align: top;
     }
   }
 }
@@ -127,14 +170,13 @@ $error-red: #dd4b39;
 
 .default-page {
   &.editable-area {
-    @include editable-children;
-    &, p {
+    @mixin font {
       @include paragraph-like-font;
-
-      // improve readability
-      font-weight: normal;
-      color: #333;
-
+      // TODO improve readability
+    }
+    @include font;
+    @include editable-children {
+      @include font;
     }
     img {
       display: inline;

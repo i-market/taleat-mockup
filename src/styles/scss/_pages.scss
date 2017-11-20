@@ -307,7 +307,7 @@ $light-yellow: #faebc1;
     &.editable-area {
       @include editable-children {
         @include paragraph-like-font;
-      };
+      }
     }
   }
 }
@@ -981,7 +981,7 @@ $light-yellow: #faebc1;
       &.editable-area {
         @include editable-children {
           @include font;
-        };
+        }
       }
     }
   }
@@ -1226,7 +1226,7 @@ $light-yellow: #faebc1;
     &.editable-area {
       @include editable-children {
         @include font;
-      };
+      }
     }
   }
 }
@@ -1942,7 +1942,7 @@ $light-yellow: #faebc1;
       &.editable-area {
         @include editable-children {
           @include font;
-        };
+        }
       }
     }
     .yellow-btn {

@@ -767,10 +767,11 @@ $light-yellow: #faebc1;
   @media only screen and (max-width: 767px) {
     margin-top: 40px;
   }
+  h1, .h1,
   h2, .h2 {
-    $offset: 220 - 105; // works kind of like .about .wrap, but not quite
-    $offset: 0; // works kind of like .about .wrap, but not quite
-    padding-left: 220px - $offset;
+    // kind of like .section-title headings, but not quite.
+    // further aligned with js.
+    padding-left: 220px;
     @media only screen and (max-width: 1023px) {
       padding-left: 0;
     }

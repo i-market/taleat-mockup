@@ -761,6 +761,28 @@ $light-yellow: #faebc1;
   }
 }
 
+.catalog-about {
+  // see .section-title
+  margin-top: 80px;
+  @media only screen and (max-width: 767px) {
+    margin-top: 40px;
+  }
+  h2, .h2 {
+    $offset: 220 - 105; // works kind of like .about .wrap, but not quite
+    $offset: 0; // works kind of like .about .wrap, but not quite
+    padding-left: 220px - $offset;
+    @media only screen and (max-width: 1023px) {
+      padding-left: 0;
+    }
+  }
+  .editable-area {
+    @include paragraph-like-font;
+    @include editable-children {
+      @include paragraph-like-font;
+    }
+  }
+}
+
 .catalog-pages {
   padding-bottom: 50px;
   .wrap {

@@ -55,6 +55,9 @@ $error-red: #dd4b39;
       margin-bottom: 15px;
     }
   }
+  span {
+    @content;
+  }
   a {
     color: $purple;
     text-decoration: underline;

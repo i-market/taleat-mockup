@@ -876,6 +876,13 @@ $light-yellow: #faebc1;
   .grid {
     width: 100%; // quick fix for the brand page
   }
+  .no-img-placeholder {
+    @include aspect-ratio($width: 4, $height: 3);
+    width: 100%;
+    .content {
+      @include no-img-background;
+    }
+  }
 }
 
 .wrap-slider-item {

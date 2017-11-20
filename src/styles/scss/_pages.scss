@@ -1562,7 +1562,6 @@ $light-yellow: #faebc1;
 }
 
 .modal {
-  @include modal-like;
   display: none;
   position: fixed;
   top: 0;
@@ -1578,6 +1577,8 @@ $light-yellow: #faebc1;
     left: 50%;
     margin-left: -285px;
   }
+  // order matters
+  @include modal-like;
 }
 
 .modal-like {

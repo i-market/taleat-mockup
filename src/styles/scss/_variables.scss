@@ -1,5 +1,6 @@
 @import '_common.scss';
 
+// TODO refactor variables. see _snippets.scss.
 $yellow: #ffc900;
 $red: #ff0c00;
 $gray: #999;
@@ -490,7 +491,7 @@ h4,
     @media only screen and (max-width: 767px) {
       display: none;
     }
-    &.editable-section {
+    &.editable-area {
       @include editable-children {
         @include font;
       }

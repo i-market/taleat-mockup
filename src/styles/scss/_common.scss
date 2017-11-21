@@ -1,3 +1,5 @@
+@import '_snippets.scss';
+
 // same as in _variables.scss
 $purple: #6688cc;
 $blue: #214385;
@@ -42,6 +44,7 @@ $error-red: #dd4b39;
 
 @mixin editable-children {
   // shouldn't intersect with mockup styles
+  @include snippets;
   p, span {
     @content;
   }
@@ -66,26 +69,31 @@ $error-red: #dd4b39;
     }
   }
   ul, ol {
-    // .list like
     li {
       @content;
-      position: relative;
-      padding-left: 25px;
       @media only screen and (max-width: 767px) {
         font-size: 14px;
       }
-      &:before {
-        display: block;
-        position: absolute;
-        content: '';
-        width: 8px;
-        height: 8px;
-        top: 8px;
-        left: 0px;
-        border-radius: 50%;
-        background: $purple;
-      }
     }
+  }
+  ul li {
+    // .list like
+    position: relative;
+    padding-left: 25px;
+    &:before {
+      display: block;
+      position: absolute;
+      content: '';
+      width: 8px;
+      height: 8px;
+      top: 8px;
+      left: 0px;
+      border-radius: 50%;
+      background: $purple;
+    }
+  }
+  ol li {
+    list-style: decimal inside;
   }
   table {
     $border: #ddd;
@@ -159,59 +167,6 @@ $error-red: #dd4b39;
       background: #fef8e4;
       border: 1px solid #d9a903;
       color: #000;
-    }
-  }
-}
-
-
-.editable-area {
-  // used as a marker. don't put styles here.
-}
-
-.default-page {
-  &.editable-area {
-    @mixin font {
-      @include paragraph-like-font;
-      // TODO improve readability
-    }
-    @include font;
-    @include editable-children {
-      @include font;
-    }
-    img {
-      display: inline;
-    }
-  }
-}
-
-// dev
-
-.TODO-mockup {
-  position: relative;
-  & > * {
-    opacity: 0.5;
-    filter: grayscale(100%);
-  }
-  &:before {
-    content: 'макет';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: red;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 1rem;
-    z-index: 1;
-  }
-  &:hover {
-    &:before {
-      display: none;
-    }
-    & > * {
-      opacity: 1;
-      filter: none;
     }
   }
 }

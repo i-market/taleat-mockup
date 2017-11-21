@@ -649,9 +649,23 @@ $light-yellow: #faebc1;
     color: #333;
   }
   .text {
-    line-height: 24px;
+    @mixin font {
+      line-height: 24px;
+    }
+    @include font;
     margin-bottom: 20px;
     color: #666;
+    &.editable-area {
+      @include editable-children {
+        @include font;
+      }
+    }
+  }
+  &.first-new--without-img {
+    .info {
+      width: 100%;
+      padding-left: 0;
+    }
   }
 }
 

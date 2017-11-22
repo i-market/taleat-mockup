@@ -84,6 +84,13 @@ window.Mockup = (function () {
         mobile: true
       });
 
+      //палец на прокрутке
+      $('.finger-block').scroll(function () {
+        if ($(this).scrollLeft() > 1) {
+          $('.finger').fadeOut(150)
+        }
+      });
+
       // показать редактируемые данные
       $('.edit-btn').on('click', function () {
         $('.product-registration-edit').hide();
@@ -220,12 +227,6 @@ window.Mockup = (function () {
     $('.menu-hidden-close').on('click', function () {
       $('.menu-hidden').hide();
       $('html, body').removeClass('open');
-    });
-    //палец на прокрутке
-    $('.finger-block').scroll(function () {
-      if ($(this).scrollLeft() > 1) {
-        $('.finger').fadeOut(150)
-      }
     });
     // открыть / закрыть характеристики товара
     $('.open-catalog-hidden-block').on('click', function () {

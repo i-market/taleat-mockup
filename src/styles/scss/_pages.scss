@@ -1907,6 +1907,11 @@ $light-yellow: #faebc1;
   }
 }
 
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 .finger {
   display: block;
   position: absolute;
@@ -1918,7 +1923,7 @@ $light-yellow: #faebc1;
   margin-left: -24px;
   z-index: 999;
   background: url('../images/ico/finger.png')no-repeat center center;
-  animation: swipe 2s ease-in-out infinite;
+  animation: fade-in 1000ms, swipe 2s ease-in-out infinite;
   @media only screen and (min-width: 1024px) {
     display: none;
   }

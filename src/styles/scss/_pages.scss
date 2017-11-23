@@ -1935,7 +1935,7 @@ $light-yellow: #faebc1;
   margin-left: -24px;
   z-index: 999;
   background: url('../images/ico/finger.png')no-repeat center center;
-  animation: fade-in 1000ms, swipe 2s ease-in-out infinite;
+  animation: fade-in 2000ms, swipe 2s ease-in-out infinite;
   @media only screen and (min-width: 1024px) {
     display: none;
   }
@@ -2333,7 +2333,7 @@ $light-yellow: #faebc1;
   .item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     max-width: 875px;
     margin-bottom: 20px;
@@ -2347,16 +2347,27 @@ $light-yellow: #faebc1;
     text-align: right;
     color: #000;
     padding-right: 20px;
+    line-height: 1.2;
     @media only screen and (max-width: 767px) {
       width: 100%;
       text-align: left;
       margin-bottom: 15px;
+    }
+    @media only screen and (min-width: 768px) {
+      // same as input height
+      min-height: 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
   }
   .right {
     width: calc(100% - 250px);
     @media only screen and (max-width: 767px) {
       width: 100%;
+    }
+    label.error {
+      margin-top: 20px;
     }
   }
   .item--col {
@@ -2450,7 +2461,7 @@ $light-yellow: #faebc1;
     display: block;
     width: 100%;
     max-width: 480px;
-    margin: 0 auto 45px;
+    margin: 45px auto;
   }
   .block {
     max-width: 570px;

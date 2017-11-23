@@ -77,7 +77,7 @@ window.Mockup = (function () {
   };
 
   Mockup.initComponents = function($scope) {
-    var local$ = _.partialRight($, $scope);
+    var local$ = function (sel) { return $(sel, $scope); };
     (function ($) {
       $('.input-number').inputNumber();
       $('select').dropdown({

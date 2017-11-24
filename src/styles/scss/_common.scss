@@ -1,8 +1,13 @@
-@import '_snippets.scss';
-
-// same as in _variables.scss
+// TODO refactor. same as in _variables.scss
+$yellow: #ffc900;
+$red: #ff0c00;
+$gray: #999;
 $purple: #6688cc;
+$black: #333;
 $blue: #214385;
+$green: #009900;
+$border: #e3e9f4;
+$bg: #f5f6fa;
 
 $error-red: #dd4b39;
 
@@ -42,6 +47,78 @@ $error-red: #dd4b39;
   }
 }
 
+@mixin child-margin($directions...) {
+  @each $d in $directions {
+    // same as say a paragraph margin
+    margin-#{$d}: 24px;
+    @media only screen and (max-width: 767px) {
+      margin-#{$d}: 15px;
+    }
+  }
+}
+
+@mixin snippets {
+  // bitrix wysiwyg editor snippets
+
+  // TODO include centered .list
+
+  .emphasis-block {
+    @include child-margin(top, bottom);
+    padding: 35px 15px;
+    background: #fff9e5;
+    color: #000;
+    .content {
+      max-width: 570px;
+      margin: 0 auto;
+    }
+  }
+  figure.img {
+    @include child-margin(top, bottom);
+    // .safety-item like
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    .img {
+      width: 60%;
+      @media only screen and (max-width: 767px) {
+        width: 50%;
+      }
+      @media only screen and (max-width: 599px) {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    figcaption {
+      $margin: 25px;
+      width: calc(40% - #{$margin});
+      margin-left: $margin;
+      margin-top: 40px;
+      @media only screen and (max-width: 767px) {
+        $margin: 20px;
+        width: calc(50% - #{$margin});
+        margin-left: $margin;
+        margin-top: 20px;
+      }
+      @media only screen and (max-width: 599px) {
+        width: 100%;
+      }
+      padding: 15px 30px 0;
+      border-top: 1px solid $border;
+      font-style: italic;
+      color: $purple;
+      font-size: 14px;
+      line-height: 1.2;
+      @media only screen and (max-width: 767px) {
+        padding: 15px;
+      }
+    }
+  }
+}
+
 @mixin editable-children {
   // shouldn't intersect with mockup styles
   @include snippets;
@@ -53,10 +130,12 @@ $error-red: #dd4b39;
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6,
   table {
-    margin-bottom: 24px;
-    @media only screen and (max-width: 767px) {
-      margin-bottom: 15px;
-    }
+    @include child-margin(bottom);
+  }
+  img {
+    @include child-margin(top, bottom);
+    max-width: 100%;
+    height: auto;
   }
   ol ol, ol ul, ul ol, ul ul {
     margin-bottom: 0;

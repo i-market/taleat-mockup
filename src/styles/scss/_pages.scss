@@ -1671,12 +1671,18 @@ $light-yellow: #faebc1;
       color: rgba(darken($green, 20%), 0.8);
       background: desaturate(lighten($green, 63%), 40%);
     }
+    a {
+      font-weight: bold;
+      text-decoration: underline;
+    }
   }
 }
 
 .validate {
-  input:not(:focus).error {
-    border: 1px solid $error-red;
+  input, textarea {
+    &:not(:focus).error {
+      border: 1px solid $error-red;
+    }
   }
   label.error {
     display: block;
@@ -2326,6 +2332,13 @@ $light-yellow: #faebc1;
     }
   }
   .input,
+  textarea {
+    &:disabled {
+      cursor: not-allowed;
+      background: transparent;
+    }
+  }
+  .input,
   textarea,
   .label_textarea {
     margin-bottom: 0;
@@ -2337,9 +2350,9 @@ $light-yellow: #faebc1;
     flex-wrap: wrap;
     max-width: 875px;
     margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
+  }
+  & > .item:last-child { // keep margins if an .item is wrapped in another element
+    margin-bottom: 0;
   }
   .left {
     width: 250px;

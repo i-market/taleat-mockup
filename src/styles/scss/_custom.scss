@@ -20,6 +20,13 @@
   }
 }
 
+.tab-pane {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
 // dev
 
 .TODO-mockup {

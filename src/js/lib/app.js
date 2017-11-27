@@ -111,7 +111,7 @@ window.Mockup = (function () {
   $(document).ready(onReady);
 
   function onReady() {
-    Mockup.initComponents($('body'));
+    Mockup.initComponents($(document));
 
     if ($('.product-registration-sticky').length) {
       stickyInit();

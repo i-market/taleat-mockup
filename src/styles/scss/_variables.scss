@@ -1021,7 +1021,7 @@ h4,
 
 .wrap-radio {
   margin-bottom: 20px;
-  label {
+  label:not(.error) { // not validation error
     position: relative;
     display: inline-block;
     vertical-align: top;

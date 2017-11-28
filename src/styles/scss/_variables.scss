@@ -1248,6 +1248,7 @@ input[type="file"] {
   }
   .hidden-block {
     position: relative;
+    cursor: pointer;
     &.open {
       &:before {
         transform: rotate(180deg);
@@ -1264,6 +1265,9 @@ input[type="file"] {
       background: url('../images/ico/arrow-select.png')no-repeat center center;
       cursor: pointer;
       user-select: none;
+    }
+    .visible-text {
+      color: $purple;
     }
   }
   .hidden-text {
@@ -1294,8 +1298,11 @@ input[type="file"] {
       &.status {
         color: #999;
         text-decoration: none;
-        cursor: no-drop;
+        cursor: not-allowed;
       }
     }
+  }
+  .edit {
+    margin-top: 15px;
   }
 }

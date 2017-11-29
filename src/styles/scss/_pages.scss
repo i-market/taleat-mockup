@@ -1679,7 +1679,7 @@ $light-yellow: #faebc1;
 }
 
 .validate {
-  input, textarea {
+  input:not([type=file]), textarea {
     &:not(:focus).error {
       border: 1px solid $error-red;
     }

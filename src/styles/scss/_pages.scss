@@ -2354,6 +2354,12 @@ $light-yellow: #faebc1;
   & > .item:last-child { // keep margins if an .item is wrapped in another element
     margin-bottom: 0;
   }
+  .section {
+    margin-bottom: 20px;
+    .wrap-checkbox {
+      margin-bottom: 20px;
+    }
+  }
   .left {
     width: 250px;
     font-size: 16px;

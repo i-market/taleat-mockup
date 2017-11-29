@@ -1245,6 +1245,9 @@ input[type="file"] {
     &.no {
       color: $red;
     }
+    &.neither {
+      color: #333;
+    }
   }
   .hidden-block {
     position: relative;

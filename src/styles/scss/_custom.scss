@@ -27,6 +27,50 @@
   }
 }
 
+.image-uploads {
+  display: flex;
+  .image-uploads__item {
+    background: #fff;
+    max-width: 200px;
+    flex: 1 1 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    .image-uploads__item-img {
+      @include aspect-ratio(1, 1);
+      margin-bottom: 20px;
+      background: no-repeat center center;
+      background-size: contain;
+      &.has-text {
+        background: transparent !important; // override inline style
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
+      }
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    flex-wrap: wrap;
+    .image-uploads__item {
+      width: 100%;
+      max-width: 100%;
+      margin-right: 0;
+      .image-uploads__item-img {
+        height: 100px;
+        // hack
+        &:not([style]) { // have no image
+          display: none;
+        }
+        &:before { // hack: see aspect-radio mixin
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 // dev
 
 .TODO-mockup {

@@ -617,6 +617,13 @@ $light-yellow: #faebc1;
   }
 }
 
+.videos--pages {
+  margin-bottom: 30px;
+  .video-item {
+    margin-bottom: 30px;
+  }
+}
+
 .first-new {
   display: flex;
   justify-content: space-between;

@@ -75,11 +75,11 @@
 
 .footer-links {
   font-size: 14px;
+  .hide-in-footer {
+    display: none;
+  }
   p {
     margin-bottom: 24px;
-  }
-  a {
-    text-transform: uppercase;
   }
 }
 

@@ -1652,6 +1652,35 @@ $light-yellow: #faebc1;
   }
 }
 
+@mixin error-message {
+  color: rgba(darken(red, 20%), 0.8);
+  background: lighten(red, 46%);
+}
+
+@mixin success-message {
+  color: rgba(darken($green, 20%), 0.8);
+  background: desaturate(lighten($green, 63%), 40%);
+}
+
+@mixin info-message {
+  color: #000;
+  background: #fef8e4;
+}
+
+.flash-message {
+  @include info-message;
+  @include paragraph-like-font;
+  font-weight: normal;
+  padding: 5px;
+  text-align: center;
+  &.error {
+    @include error-message;
+  }
+  &.success {
+    @include success-message;
+  }
+}
+
 .form {
   .form__title {
     font-size: 18px;
@@ -1664,19 +1693,16 @@ $light-yellow: #faebc1;
     }
   }
   .form__message {
+    @include info-message;
     font-size: 14px;
     line-height: 1.3;
     padding: 20px;
     margin-bottom: 30px;
-    background: #fef8e4;
-    color: #000;
     &.form__message--error {
-      color: rgba(darken(red, 20%), 0.8);
-      background: lighten(red, 46%);
+      @include error-message;
     }
     &.form__message--success {
-      color: rgba(darken($green, 20%), 0.8);
-      background: desaturate(lighten($green, 63%), 40%);
+      @include success-message;
     }
     a {
       font-weight: bold;

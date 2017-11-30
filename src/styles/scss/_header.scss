@@ -386,6 +386,9 @@
     a {
       display: block;
       padding-left: 30px;
+      &.hide-in-header {
+        display: none;
+      }
       &.active {
         background: #4365a8;
         span {

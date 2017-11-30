@@ -1801,12 +1801,12 @@ $light-yellow: #faebc1;
     margin-bottom: 20px;
   }
   .paragraph {
-    height: 145px;
+    max-height: 145px;
     overflow: hidden;
     color: #666;
     margin-bottom: 5px;
     &.open {
-      height: auto;
+      max-height: none;
       overflow: auto;
     }
   }
@@ -1814,6 +1814,7 @@ $light-yellow: #faebc1;
     text-align: right;
   }
   .reviews-item-link {
+    display: none;
     color: $purple;
     cursor: pointer;
     user-select: none;

@@ -581,9 +581,22 @@ $light-yellow: #faebc1;
     color: $blue;
     font-weight: 700;
     margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  @mixin font {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .description {
+    &.editable-area {
+      @include font;
+      @include editable-children {
+        @include font;
+      }
+    }
   }
   .text {
-    line-height: 24px;
+    @include font;
     padding: 20px;
     border-bottom: 1px solid $border;
     &:last-child {
@@ -602,6 +615,24 @@ $light-yellow: #faebc1;
   }
   .contacts-name {
     margin-bottom: 5px;
+  }
+  .contacts-text {
+    &.editable-area {
+      @mixin font {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      @include font;
+      @include editable-children {
+        @include font;
+      }
+      strong {
+        @include font;
+      }
+    }
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid $border;
   }
 }
 

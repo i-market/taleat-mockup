@@ -892,6 +892,13 @@ h4,
   }
 }
 
+.tab_links--personal {
+  justify-content: center;
+  .tab-link {
+    margin-right: 25px;
+  }
+}
+
 .tab_links--second {
   width: 75%;
   margin: 0 auto 40px;

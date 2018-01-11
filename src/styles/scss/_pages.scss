@@ -2267,13 +2267,30 @@ $light-yellow: #faebc1;
     }
   }
   .allert {
-    color: $red;
-    line-height: 1.2;
+    @mixin font {
+      color: rgba(#000, 0.8);
+      line-height: 1.2;
+    }
+    @include font;
     padding: 20px;
     background: #fef8e4;
     margin-bottom: 50px;
     @media only screen and (max-width: 1023px) {
       margin-bottom: 30px;
+    }
+    &.editable-area {
+      @include editable-children {
+        @include font;
+      }
+      div {
+        @include font;
+      }
+      & > div + div {
+        margin-top: 1em;
+      }
+      & > br:last-child {
+        display: none;
+      }
     }
   }
   .wrap-table {
@@ -2319,6 +2336,9 @@ $light-yellow: #faebc1;
         }
       }
     }
+  }
+  .fs-dropdown-selected {
+    margin-bottom: 20px;
   }
 }
 

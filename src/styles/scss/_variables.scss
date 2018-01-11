@@ -607,6 +607,7 @@ h4,
   @media only screen and (max-width: 1023px) {
     font-size: 14px;
   }
+  input[type=radio]:checked + &,
   &.active,
   &:hover {
     background: #fef8e4;

@@ -244,11 +244,6 @@ window.Mockup = (function () {
       $(this).toggleClass('open');
       $(this).hasClass('open') ? $(this).text('Свернуть') : $(this).text('Подробнее');
     });
-    // выбор в ЛК
-    $('.wrap-btn .simple-btn').on('click', function () {
-      $(this).parent().find('.simple-btn').removeClass('active');
-      $(this).addClass('active');
-    });
     // удалить товар в ЛК
     $('.active-orders .delete').on('click', function () {
       var root = $(this).parents('.wrap-active-orders');

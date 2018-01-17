@@ -1,3 +1,5 @@
+@import '_common.scss';
+
 .header {
   /*@media only screen and (max-width: 767px) {
     position: fixed;
@@ -519,6 +521,15 @@
       right: 5px;
       border: 6px solid rgba(255, 255, 255, 0);
       border-bottom: 6px solid #fff;
+    }
+    @media only screen and (max-width: 1150px) {
+      right: -$wrap-side-padding;
+      &:before {
+        right: $wrap-side-padding;
+      }
+      a {
+        padding-right: $wrap-side-padding;
+      }
     }
   }
   a {

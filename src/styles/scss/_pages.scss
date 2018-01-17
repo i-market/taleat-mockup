@@ -1535,6 +1535,10 @@ $light-yellow: #faebc1;
         text-align: right;
       }
     }
+    a {
+      color: $purple;
+      white-space: nowrap;
+    }
     .delete {
       color: $red;
       cursor: pointer;
@@ -2002,7 +2006,7 @@ $light-yellow: #faebc1;
   top: 85px;
   left: 50%;
   margin-left: -24px;
-  z-index: 999;
+  z-index: 11;
   background: url('../images/ico/finger.png')no-repeat center center;
   animation: fade-in 2000ms, swipe 2s ease-in-out infinite;
   @media only screen and (min-width: 1024px) {
@@ -2225,11 +2229,19 @@ $light-yellow: #faebc1;
 
 .product-registration-info {
   .paragraph {
-    font-size: 18px;
+    @mixin font {
+      font-size: 18px;
+      font-weight: 400;
+    }
+    @include font;
     margin-bottom: 40px;
-    font-weight: 400;
     @media only screen and (max-width: 1024px) {
       margin-bottom: 20px;
+    }
+    &.editable-area {
+      @include editable-children {
+        @include font;
+      }
     }
   }
   .inner {
@@ -2292,6 +2304,11 @@ $light-yellow: #faebc1;
         display: none;
       }
     }
+  }
+  .text-block {
+    margin-bottom: 1em;
+    color: #000;
+    line-height: 1.2;
   }
   .wrap-table {
     padding: 25px 0;

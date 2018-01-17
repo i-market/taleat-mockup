@@ -90,6 +90,11 @@ window.Mockup = (function () {
           $('.finger').fadeOut(150)
         }
       });
+      $('.finger-block').each(function () {
+        if (this.scrollWidth === this.clientWidth) {
+          $(this).find('.finger').hide();
+        }
+      });
 
       // показать редактируемые данные
       $('.edit-btn').on('click', function () {
@@ -243,21 +248,6 @@ window.Mockup = (function () {
       $(this).parents('.my-orders-item').find('.hidden-info').slideToggle(150);
       $(this).toggleClass('open');
       $(this).hasClass('open') ? $(this).text('Свернуть') : $(this).text('Подробнее');
-    });
-    // удалить товар в ЛК
-    $('.active-orders .delete').on('click', function () {
-      var root = $(this).parents('.wrap-active-orders');
-      $(this).parents('.my-orders-item').remove();
-      if ($('.my-orders-item', root).length === 0) {
-        $(root).text('У вас сейчас нет активных заказов')
-      }
-    });
-    $('.completed-orders .delete').on('click', function () {
-      var root = $(this).parents('.wrap-completed-orders');
-      $(this).parents('.my-orders-item').remove();
-      if ($('.my-orders-item', root).length === 0) {
-        $(root).text('У вас нет выполненных заказов')
-      }
     });
     // скрол шапки
     var resizeWindow = function () {

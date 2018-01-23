@@ -284,6 +284,10 @@ button {
     cursor: pointer;
     user-select: none;
     background: url('../images/ico/cart-item.png')no-repeat center center;
+    transition: 0.3s;
+    &:hover {
+      filter: #{invert(90%)};
+    }
   }
 }
 

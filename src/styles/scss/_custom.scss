@@ -18,6 +18,9 @@
       display: inline;
     }
   }
+  &.default-page--has-forms {
+    @include form-elements;
+  }
 }
 
 .tab-pane {
@@ -60,7 +63,7 @@
       .image-uploads__item-img {
         height: 100px;
         // hack
-        &:not([style]) { // have no image
+        &:not([style]) { // has no image
           display: none;
         }
         &:before { // hack: see aspect-radio mixin

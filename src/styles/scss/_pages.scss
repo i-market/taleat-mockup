@@ -1779,6 +1779,12 @@ $light-yellow: #faebc1;
       background-color: #fcfcfa;
     }
   }
+  &.form--simple-upload {
+    @include form-elements;
+    & > * {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .validate {

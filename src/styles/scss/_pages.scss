@@ -2012,6 +2012,15 @@ $light-yellow: #faebc1;
         @include no-img-background;
       }
     }
+    .img-holder {
+      @include aspect-ratio($width: 4, $height: 3);
+      width: 100%;
+      .content {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+    }
   }
   .delete {
     width: 12px;

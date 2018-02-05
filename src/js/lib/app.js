@@ -269,12 +269,23 @@ window.Mockup = (function () {
       resizeWindow();
     });
     // галерея
-    $('[data-fancybox]').fancybox({
+    var opts = {
       slideShow: false,
       fullScreen: false,
-      thumbs: false,
+      thumbs: false
       //loop: false
-    });
+    };
+    $('[data-fancybox], .fancybox:not(img)').fancybox(opts);
+    $('img.fancybox')
+      .each(function () { $(this).attr('role', 'button'); })
+      .on('click', function () {
+        // seems hacky
+        $.fancybox.open({
+          src: $(this).attr('src'),
+          type: 'image',
+          opts: _.merge({}, opts, {caption: $(this).attr('alt')})
+        });
+      });
     // слайдер с логотипами
     $('.labels-slider').slick({
       infinite: true,

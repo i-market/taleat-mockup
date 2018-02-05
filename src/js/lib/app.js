@@ -110,6 +110,26 @@ window.Mockup = (function () {
         $(this).hide();
         $('.change-password-hidden').show();
       });
+
+      // галерея
+      var opts = {
+        slideShow: false,
+        fullScreen: false,
+        thumbs: false
+        //loop: false
+      };
+      $('[data-fancybox], .fancybox:not(img)').fancybox(opts);
+      $('img.fancybox')
+        .each(function () { $(this).attr('role', 'button'); })
+        .on('click', function () {
+          // seems hacky
+          jQuery.fancybox.open({
+            src: $(this).attr('src'),
+            type: 'image',
+            // opts: _.merge({}, opts, {caption: $(this).attr('alt')})
+            opts: opts
+          });
+        });
     })(local$);
   };
 
@@ -268,24 +288,6 @@ window.Mockup = (function () {
     $(window).on('load resize', function () {
       resizeWindow();
     });
-    // галерея
-    var opts = {
-      slideShow: false,
-      fullScreen: false,
-      thumbs: false
-      //loop: false
-    };
-    $('[data-fancybox], .fancybox:not(img)').fancybox(opts);
-    $('img.fancybox')
-      .each(function () { $(this).attr('role', 'button'); })
-      .on('click', function () {
-        // seems hacky
-        $.fancybox.open({
-          src: $(this).attr('src'),
-          type: 'image',
-          opts: _.merge({}, opts, {caption: $(this).attr('alt')})
-        });
-      });
     // слайдер с логотипами
     $('.labels-slider').slick({
       infinite: true,

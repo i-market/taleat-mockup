@@ -1460,6 +1460,16 @@ $light-yellow: #faebc1;
     border-bottom: 1px solid $border;
     margin-bottom: 12px;
   }
+  .comment {
+    padding-bottom: 12px;
+    border-bottom: 1px solid $border;
+    margin-bottom: 12px;
+  }
+  .disabled {
+    .comment {
+      color: #999;
+    }
+  }
   .top-name {
     width: calc(100% - 80px);
     color: $green;

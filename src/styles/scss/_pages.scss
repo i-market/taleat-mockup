@@ -1357,8 +1357,8 @@ $light-yellow: #faebc1;
 
 .required-documents {
   $margin: 60px;
-  .wrap-documents {
-    margin-top: $margin;
+  .download-btn {
+    margin-bottom: $margin;
   }
   .item {
     position: relative;
@@ -1410,7 +1410,7 @@ $light-yellow: #faebc1;
   }
   .desc {
     .desc__item {
-      margin-top: $margin;
+      margin-bottom: $margin;
       &.editable-area {
         @include paragraph-like-font;
         @include editable-children {

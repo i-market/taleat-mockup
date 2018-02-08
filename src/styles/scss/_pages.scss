@@ -2399,6 +2399,9 @@ $light-yellow: #faebc1;
     color: #000;
     line-height: 1.2;
   }
+  .sale_locations_fixed { // sale.ajax.locations
+    display: none;
+  }
   .wrap-table {
     padding: 25px 0;
     border-top: 1px solid $border;

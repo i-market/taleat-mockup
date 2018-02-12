@@ -446,6 +446,15 @@ h4,
   }
 }
 
+// slick FOUC fix
+// https://github.com/kenwheeler/slick/issues/1741#issuecomment-154062718
+.labels-slider {
+  display: none;
+  &.slick-initialized {
+    display: block;
+  }
+}
+
 .news-item {
   display: flex;
   justify-content: space-between;

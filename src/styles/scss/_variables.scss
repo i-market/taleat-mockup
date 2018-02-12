@@ -532,15 +532,17 @@ h4,
     position: relative;
     border: 1px solid #fff;
     margin-bottom: 20px;
-    &:before {
-      display: block;
-      position: absolute;
-      content: '';
-      width: 48px;
-      height: 61px;
-      bottom: 12px;
-      right: 12px;
-      background: url('../images/ico/pdf.png')no-repeat center center;
+    &.img--pdf {
+      &:before {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 48px;
+        height: 61px;
+        bottom: 12px;
+        right: 12px;
+        background: url('../images/ico/pdf.png')no-repeat center center;
+      }
     }
   }
   .name {

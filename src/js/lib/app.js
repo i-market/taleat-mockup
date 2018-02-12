@@ -119,7 +119,7 @@ window.Mockup = (function () {
         //loop: false
       };
       $('[data-fancybox], .fancybox:not(img)').fancybox(opts);
-      $('img.fancybox')
+      $('img.fancybox:not([role=button])') // TODO refactor. keep idempotent.
         .each(function () { $(this).attr('role', 'button'); })
         .on('click', function () {
           // seems hacky

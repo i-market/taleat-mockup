@@ -154,6 +154,47 @@ img.fancybox {
   cursor: pointer;
 }
 
+// sale.ajax.locations component
+
+input.search-suggest {
+  margin-top: 7px;
+}
+
+div.search-popup {
+  @include card;
+  background: #FFFFFF;
+  padding: 20px 0;
+  margin: 0;
+}
+
+div.search-popup-row, div.search-popup-row-active {
+  position: relative;
+  padding: 10px 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+div.search-popup-row {
+  background: #FFFFFF;
+}
+
+div.search-popup-row-active {
+  background: #f2f3f7; // same as input background
+}
+
+div.search-popup-el-name, div.search-popup-el-cnt {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: #000;
+}
+
+div.search-popup-el-cnt {
+  text-align: right;
+  float: right;
+}
+
 // dev
 
 .TODO-mockup {

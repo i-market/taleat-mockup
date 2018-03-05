@@ -149,6 +149,11 @@ $wrap-side-padding: 15px;
       text-decoration: none;
     }
   }
+  b, strong {
+    &, * {
+      font-weight: bold;
+    }
+  }
   ul, ol {
     li {
       @content;

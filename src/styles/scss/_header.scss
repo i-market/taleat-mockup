@@ -212,6 +212,13 @@
       margin-right: 5px;
     }
   }
+  .text {
+    font-size: 16px;
+    color: #999;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .header-bottom {
@@ -466,6 +473,12 @@
       color: #c1cde8;
       margin-right: 5px;
     }
+    & + .text {
+      margin-top: -15px;
+    }
+  }
+  .text {
+    margin-bottom: 30px;
   }
 }
 

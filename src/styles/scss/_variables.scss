@@ -629,12 +629,16 @@ h4,
     border: 1px solid #d9a903;
     color: #000;
   }
-  &.has-radio {
+  &.has-radio { // see checkout page
     position: relative;
     padding: 0 10px 0 40px;
     justify-content: flex-start;
     text-align: left;
-    line-height: 1.2; // TODO not .has-radio specific
+
+    // TODO refactor: ad-hoc
+    line-height: 1.2;
+    font-size: 14px;
+
     input[type=radio] {
       display: none;
     }

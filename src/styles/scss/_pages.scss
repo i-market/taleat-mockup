@@ -493,6 +493,7 @@ $light-yellow: #faebc1;
 
 .contacts-bottom {
   margin-top: 15px;
+  margin-bottom: 15px;
   .col-2 {
     @media only screen and (max-width: 1023px) {
       width: calc(100% - 30px);

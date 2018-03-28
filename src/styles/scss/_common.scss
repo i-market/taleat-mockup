@@ -138,7 +138,7 @@ $wrap-side-padding: 15px;
     @include child-margin(top, bottom);
     max-width: 100%;
     height: auto;
-    &[align] {
+    &[align]:not([align=middle]) {
       margin: 1em;
     }
   }

@@ -89,6 +89,12 @@ button {
   }
 }
 
+@media (min-width: 992px) {
+  .hidden-lg-up {
+    display: none !important;
+  }
+}
+
 .content {
   &.scroll {
     margin-top: 60px;

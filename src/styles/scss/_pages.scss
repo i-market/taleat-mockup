@@ -173,12 +173,17 @@ $light-yellow: #faebc1;
     }
   }
   .text {
-    width: 100%;
-    font-size: 16px;
-    line-height: 30px;
-    @media only screen and (max-width: 1150px) {
+    @mixin font {
+      font-size: 16px;
       line-height: 1.4;
     }
+    @include font;
+    &.editable-area {
+      @include editable-children {
+        @include font;
+      }
+    }
+    width: 100%;
     @media only screen and (max-width:1023px) {
       display: none;
     }
